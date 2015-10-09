@@ -1,6 +1,6 @@
 <template name="listPatients">
   {{#contentFor "headerTitle"}}
-    <a href="{{pathFor 'home'}}" class="button icon-left ion-arrow-left-c"> GO BACK </a>
+    <a href="{{pathFor 'home'}}" class="button icon-left ion-arrow-left-c button-clear button-dark"> GO BACK </a>
   {{/contentFor }}
 
 {{#ionView}}
@@ -17,15 +17,15 @@
           <div class="collapsible-body light-grey">
             <form action="#">
               <div class="row">
-                <input type="checkbox" id="took_first_class" />
+                <input type="checkbox" id="took_first_class" selected={{isTrue "took_first_class"}}/>
                 <label for="took_first_class">Took First Class</label>
               </div>
               <div class="row">
-                <input type="checkbox" id="took_practical" />
+                <input type="checkbox" id="took_practical" selected={{isTrue "took_practical"}}/>
                 <label for="took_practical">Took Practical</label>
               </div>
               <div class="row">
-                <input type="checkbox" id="discharged" />
+                <input type="checkbox" id="discharged" selected={{isTrue "discharged"}}/>
                 <label for="discharged">Discharged</label>
               </div>
             </form>

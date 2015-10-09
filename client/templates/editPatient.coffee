@@ -11,6 +11,7 @@ Template.editPatient.events
       phone: phone
       condition: condition
       date_of_admission: dateOfAdmission
+      discharged: false
     }
 
 Template.editPatient.onRendered ()->

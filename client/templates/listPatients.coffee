@@ -5,7 +5,13 @@ Template.listPatients.helpers
     re = new RegExp search
     console.log re
     #return Patients.find {$or: [{ name: { $regex: re }, phone: { $regex: re }, condition: { $regex: re} }]  }
-    return Patients.find {$or: [ {name: { $regex: re } }, {phone: {$regex: re}}, {condition: { $regex: re }}]  }
+    return Patients.find {$or: [ {name: { $regex: re } }, {phone: {$regex: re}}, {condition: { $regex: re }}] , $and: [{ discharged: false }] }
+
+  isTrue: ( query )->
+    patient = Template.currentData()
+    console.log patient
+    console.log patient[query]
+    return patient[query] == true
 
 Template.listPatients.onRendered ()->
   $(".collapsible").collapsible
