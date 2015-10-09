@@ -1,6 +1,6 @@
 <template name="listPatients">
   {{#contentFor "headerTitle"}}
-    <a href="{{pathFor 'home'}}"><img class="logo" alt="Noora Health" src="/NHlogo.png"/></a>
+    <a href="{{pathFor 'home'}}" class="button icon-left ion-arrow-left-c"> GO BACK </a>
   {{/contentFor }}
 
 {{#ionView}}
@@ -9,14 +9,30 @@
       <i class="small icon ion-search"></i><input type="search" id="search" placeholder="Search by Name, Phone #, Condition" >
     </div>
 
-    <div class="list">
-      <h3> Current Patients </h3>
+    <h3> Current Patients </h3>
+    <ul class="collapsible popout" >
       {{#each patients}}
-        <div class="row">
-          <a id="{{_id}}" class="full-width patient"> {{name}}, {{phone}}, {{condition}} </a>
-        </div>
+        <li>
+          <div class="collapsible-header"> {{name}}, {{phone}}, {{condition}} </div>
+          <div class="collapsible-body light-grey">
+            <form action="#">
+              <div class="row">
+                <input type="checkbox" id="took_first_class" />
+                <label for="took_first_class">Took First Class</label>
+              </div>
+              <div class="row">
+                <input type="checkbox" id="took_practical" />
+                <label for="took_practical">Took Practical</label>
+              </div>
+              <div class="row">
+                <input type="checkbox" id="discharged" />
+                <label for="discharged">Discharged</label>
+              </div>
+            </form>
+          </div>
+        </li>
       {{/each}}
-    </div>
+    </ul>
   {{/ionContent}}
 {{/ionView}}
   

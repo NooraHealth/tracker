@@ -7,6 +7,10 @@ Template.listPatients.helpers
     #return Patients.find {$or: [{ name: { $regex: re }, phone: { $regex: re }, condition: { $regex: re} }]  }
     return Patients.find {$or: [ {name: { $regex: re } }, {phone: {$regex: re}}, {condition: { $regex: re }}]  }
 
+Template.listPatients.onRendered ()->
+  $(".collapsible").collapsible
+    accordion: false
+
 Template.listPatients.events
   "click .patient": ( e )->
     id = $(e.target).attr "id"
