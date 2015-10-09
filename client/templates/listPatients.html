@@ -5,11 +5,11 @@
 
 {{#ionView}}
   {{#ionContent}}
-    <div class="row">
-      <input type="search" placeholder="Search">
+    <div class="row padding-top-lg">
+      <i class="small icon ion-search"></i><input type="search" id="search" placeholder="Search by Name, Phone #, Condition" >
     </div>
 
-    <div class="list padding-top-lg">
+    <div class="list">
       <h3> Current Patients </h3>
       {{#each patients}}
         <div class="row">

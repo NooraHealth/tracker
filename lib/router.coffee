@@ -25,6 +25,7 @@ Router.map ()->
     layoutTemplate: 'layout'
     data: ()->
       console.log "Going to edit patient"
+      Session.set "search_query", ""
       return Patients.findOne {_id: this.params.id}
   }
 
