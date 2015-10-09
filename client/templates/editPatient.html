@@ -1,0 +1,42 @@
+<template name="editPatient">
+  {{#contentFor "headerTitle"}}
+  <a href="{{pathFor 'home'}}"> GO BACK </a>
+  {{/contentFor }}
+
+{{#ionView}}
+  {{#ionContent}}
+    <div class="row padding padding-top-lg ">
+      <form class="full-width">
+        <div class="input-field">
+          <input type="text" id="name" name="patient_name" placeholder="Patient Name" value={{name}}>
+          <label for="name" class="full-width">Patient Name</label>
+        </div>
+        <div class="input-field">
+          <input type="text" name="phone" placeholder="Phone #" value="{{phone}}">
+          <label class="full-width">Phone Number</label>
+        </div>
+
+        <div class="input-field">
+          <select name="condition">
+            <option selected={{isCondition 'Cardiac Surgery'}}>Cardiac Surgery</option>
+            <option selected={{isCondition 'Angioplasty'}}>Angioplasty</option>
+            <option selected={{isCondition 'General Surgery'}}>General Surgery</option>
+          </select>
+          <label class="full-width" >
+            Patient Condition
+          </label>
+        </div>
+
+        <div class="input-field">
+          <label class="full-width">Date of Admission</label>
+          <input type="date" id="date_of_admission" class="datepicker" value="{{date_of_admission}}">
+        </div>
+
+        <div class='row'>
+          <a class="submit button button-calm full-width" href="{{pathFor 'home'}}"> Save Patient </a>
+        </div>
+      </form>
+    </div>
+  {{/ionContent}}
+{{/ionView}}
+</template>

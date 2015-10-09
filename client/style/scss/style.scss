@@ -1,0 +1,91 @@
+/*@import '_bourbon';*/
+@import '.meteor/local/build/programs/server/assets/packages/wolves_bourbon/bourbon/_bourbon';
+/*@import "{wolves:bourbon}/_bourbon";*/
+/*@import "{meteoric:ionicons-sass}/_ionicons";*/
+
+@import '.meteor/local/build/programs/server/assets/packages/meteoric_ionicons-sass/_ionicons';
+@import 'packages/ionic-sass/_ionic.scss';
+/*@import '{}/packages/ionic-sass/_ionic.scss';*/
+@import '_variables'; 
+
+@import '_mixins';
+
+@import '_layout';
+
+/* -------------------------------- 
+
+Primary style
+
+-------------------------------- */
+
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+*::after, *::before {
+  content: '';
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  color: black;
+  background: $light-blue-1;
+  margin-bottom: $footer-height;
+
+  a {
+    color: lighten($primary-blue, 10%);
+    text-decoration: none;
+    
+    &:hover {
+      color: $primary-blue;
+      text-decoration: none;
+    }
+  }
+}
+
+nav {
+  background-color: #03A9F4;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.large-button {
+  width: 250px;
+}
+.padding-top-lg {
+  padding-top: 50px;
+}
+
+.logo {
+  z-index: 10;
+  margin-left: 10px;
+  max-width: 60px;
+  padding: 10px;
+  border-radius: 30px;
+  background-color: #FFFFFF;
+  top: 20px;
+  position: fixed;
+}
+
+a {
+  z-index: 2;
+}
+
+.container {
+  padding-bottom: 100px;
+}
+
+.margin-top {
+  margin-top: 100px;
+}
+
+/* -------------------------------- 
+
+Custom NH components 
+
+--------------------------------*/

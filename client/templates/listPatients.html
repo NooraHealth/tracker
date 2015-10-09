@@ -1,0 +1,23 @@
+<template name="listPatients">
+  {{#contentFor "headerTitle"}}
+    <a href="{{pathFor 'home'}}"><img class="logo" alt="Noora Health" src="/NHlogo.png"/></a>
+  {{/contentFor }}
+
+{{#ionView}}
+  {{#ionContent}}
+    <div class="row">
+      <input type="search" placeholder="Search">
+    </div>
+
+    <div class="list padding-top-lg">
+      <h3> Current Patients </h3>
+      {{#each patients}}
+        <div class="row">
+          <a id="{{_id}}" class="full-width patient"> {{name}}, {{phone}}, {{condition}} </a>
+        </div>
+      {{/each}}
+    </div>
+  {{/ionContent}}
+{{/ionView}}
+  
+</template>
