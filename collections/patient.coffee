@@ -10,8 +10,10 @@ PatientSchema = new SimpleSchema
     type:String
   condition:
     type:String
-  practical_date:
-    type:Number
-  date_of_first_class:
-    type:String
+  took_practical:
+    type:Boolean
+  discharged:
+    type:Boolean
+  took_first_class:
+    type:Boolean
 

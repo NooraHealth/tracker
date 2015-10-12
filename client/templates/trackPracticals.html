@@ -1,0 +1,54 @@
+
+<template name="trackPracticals">
+  {{#contentFor "headerTitle"}}
+    <a href="{{pathFor 'home'}}" class="button icon-left ion-arrow-left-c button-clear button-dark"> GO BACK </a>
+  {{/contentFor }}
+
+{{#ionView}}
+  {{#ionContent}}
+
+    <h3> Active Patients (Already took Class) </h3>
+    <ul class="collapsible popout" >
+      {{#each patients}}
+        <li>
+          <div class="collapsible-header"> {{name}}, {{phone}}, {{condition}} </div>
+          <div class="collapsible-body light-grey">
+            <form action="#">
+              <div class="row">
+                <input type="checkbox" id="took_practical{{_id}}" name="took_practical" />
+                <label for="took_practical{{_id}}">Took Practical</label>
+              </div>
+              <div class="row">
+                <input type="checkbox" name="discharged" id="discharged{{_id}}"/>
+                <label for="discharged{{_id}}">Discharged</label>
+              </div>
+            </form>
+          </div>
+        </li>
+      {{/each}}
+    </ul>
+
+    <h3> Completed OR Discharged </h3>
+    <ul class="collapsible popout" >
+      {{#each completed }}
+        <li>
+          <div class="collapsible-header"> {{name}}, {{phone}}, {{condition}} </div>
+          <div class="collapsible-body light-grey">
+            <form action="#">
+              <div class="row">
+                <input type="checkbox" id="took_practical{{_id}}" name="took_practical" checked/>
+                <label for="took_practical{{_id}}">Took Practical</label>
+              </div>
+              <div class="row">
+                <input type="checkbox" id="discharged{{_id}}" name="discharged"/>
+                <label for="discharged{{_id}}">Discharged</label>
+              </div>
+            </form>
+          </div>
+        </li>
+      {{/each}}
+    </ul>
+  {{/ionContent}}
+{{/ionView}}
+  
+</template>

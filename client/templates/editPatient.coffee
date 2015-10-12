@@ -12,6 +12,8 @@ Template.editPatient.events
       condition: condition
       date_of_admission: dateOfAdmission
       discharged: false
+      took_first_class: false
+      took_practical: false
     }
 
 Template.editPatient.onRendered ()->
