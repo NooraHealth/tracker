@@ -11,10 +11,17 @@ Router.map ()->
     layoutTemplate: 'layout'
   }
 
-  this.route '/listPatients', {
-    path: '/listPatients'
-    name: "listPatients"
-    template: 'listPatients'
+  this.route '/trackPracticals', {
+    path: '/trackPracticals'
+    name: "trackPracticals"
+    template: 'trackPracticals'
+    layoutTemplate: 'layout'
+  }
+
+  this.route '/trackClasses', {
+    path: '/trackClasses'
+    name: "trackClasses"
+    template: 'trackClasses'
     layoutTemplate: 'layout'
   }
 
