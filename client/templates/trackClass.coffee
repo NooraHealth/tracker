@@ -1,6 +1,5 @@
 Template.trackClasses.helpers
   completed: ()->
-
     return Patients.find { took_first_class: true }
 
   patients: ()->
@@ -17,6 +16,9 @@ Template.trackClasses.onRendered ()->
     accordion: false
 
 Template.trackClasses.events
+  "click .editpatient": ( e )->
+    Router.go "editPatient", { id: @._id }
+
   "change input[name=discharged]": ( e )->
     discharged = $(e.target).is ":checked"
     Patients.update { _id: @._id }, { $set: { discharged: discharged }}
