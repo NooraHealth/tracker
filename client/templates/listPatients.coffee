@@ -1,5 +1,6 @@
 Template.listPatients.helpers
   patients: ()->
+    Meteor.initializeCollapsible()
     search = Session.get "search_query"
     console.log typeof search
     re = new RegExp search
@@ -14,8 +15,7 @@ Template.listPatients.helpers
     return patient[query] == true
 
 Template.listPatients.onRendered ()->
-  $(".collapsible").collapsible
-    accordion: false
+    Meteor.initializeCollapsible()
 
 Template.listPatients.events
   "click .patient": ( e )->
@@ -28,3 +28,4 @@ Template.listPatients.events
     search = $("#search").val()
     console.log search
     Session.set "search_query", search
+    Meteor.initializeCollapsible()
