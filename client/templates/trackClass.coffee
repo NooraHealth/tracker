@@ -1,19 +1,18 @@
 Template.trackClasses.helpers
   completed: ()->
+    Meteor.initializeCollapsible()
     return Patients.find { took_first_class: true }
 
   patients: ()->
+    Meteor.initializeCollapsible()
     return Patients.find {$and: [ { discharged: false }, { took_first_class: false }]}
 
   isTrue: ( query )->
     patient = Template.currentData()
-    console.log patient
-    console.log patient[query]
     return patient[query] == true
 
 Template.trackClasses.onRendered ()->
-  $(".collapsible").collapsible
-    accordion: false
+    Meteor.initializeCollapsible()
 
 Template.trackClasses.events
   "click .editpatient": ( e )->
@@ -22,8 +21,10 @@ Template.trackClasses.events
   "change input[name=discharged]": ( e )->
     discharged = $(e.target).is ":checked"
     Patients.update { _id: @._id }, { $set: { discharged: discharged }}
+    Meteor.initializeCollapsible()
 
   "change input[name=took_first_class]": ( e )->
     tookClass = $(e.target).is ":checked"
     Patients.update { _id: @._id }, { $set: { took_first_class: tookClass} }
+    Meteor.initializeCollapsible()
 
