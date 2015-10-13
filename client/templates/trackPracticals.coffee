@@ -11,6 +11,9 @@ Template.trackPracticals.onRendered ()->
     accordion: false
 
 Template.trackPracticals.events
+  "click .editpatient": ( e )->
+    Router.go "editPatient", { id: @._id }
+
   "change input[name=discharged]": ( e )->
     discharged = $(e.target).is ":checked"
     console.log discharged
