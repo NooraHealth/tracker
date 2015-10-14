@@ -1,0 +1,7 @@
+*.swp
+*.swo
+/server/startup.coffee
+.uploads/
+
+public/
+mup.json
