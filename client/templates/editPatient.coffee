@@ -4,12 +4,12 @@ Template.editPatient.events
     attender = $("input[name=attender_name]").val()
     phone = $("input[name=phone]").val()
     subscribes = $("input[name=subscribes]").val()
-
     patient = Patients.insert {
       name: patientName
       attender: attender
       phone: phone
       subscribes_to_ivr: subscribes
+      has_been_input_to_ivr_system: false
     }
 
 Template.editPatient.onRendered ()->

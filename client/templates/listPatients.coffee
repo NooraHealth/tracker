@@ -29,3 +29,23 @@ Template.listPatients.events
     console.log search
     Session.set "search_query", search
     Meteor.initializeCollapsible()
+
+  "change #subscribed": ( e )->
+    subscribed = $(e.target).is ":checked"
+    Patients.update { _id: @._id }, { $set: { subscribed_to_ivr: subscribed }}
+    Meteor.initializeCollapsible()
+
+  "change #took_practical": ( e )->
+    tookPractical = $(e.target).is ":checked"
+    Patients.update { _id: @._id }, { $set: { took_practical: tookPractical }}
+    Meteor.initializeCollapsible()
+
+  "change #discharged": ( e )->
+    discharged = $(e.target).is ":checked"
+    Patients.update { _id: @._id }, { $set: { discharged: discharged }}
+    Meteor.initializeCollapsible()
+
+  "change #took_first_class": ( e )->
+    tookClass = $(e.target).is ":checked"
+    Patients.update { _id: @._id }, { $set: { took_first_class: tookClass} }
+    Meteor.initializeCollapsible()
