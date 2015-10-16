@@ -1,17 +1,15 @@
 Template.editPatient.events
   "click .submit": ()->
     patientName = $("input[name=patient_name]").val()
-    condition = $('select[name=condition').val()
+    attender = $("input[name=attender_name]").val()
     phone = $("input[name=phone]").val()
-    dateOfAdmission = $("#date_of_admission").val()
-    console.log dateOfAdmission
+    subscribes = $("input[name=subscribes]").val()
 
     patient = Patients.insert {
       name: patientName
+      attender: attender
       phone: phone
-      condition: condition
-      date_of_admission: dateOfAdmission
-      discharged: false
+      subscribes_to_ivr: subscribes
     }
 
 Template.editPatient.onRendered ()->

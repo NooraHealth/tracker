@@ -1,12 +1,13 @@
 <template name="listPatients">
   {{#contentFor "headerTitle"}}
     <a href="{{pathFor 'home'}}" class="button icon-left ion-arrow-left-c button-clear button-dark"> GO BACK </a>
-  {{/contentFor }}
+
+{{/contentFor }}
 
 {{#ionView}}
   {{#ionContent}}
     <div class="row padding-top-lg">
-      <i class="small icon ion-search"></i><input type="search" id="search" placeholder="Search by Name, Phone #, Condition" >
+      <i class="small icon ion-search prefix padding"></i><input type="search" id="search" class="col-75" placeholder="Name, Phone #, Condition" >
     </div>
 
       <p><em> Current Patients </em></p>
