@@ -10,7 +10,7 @@
       <i class="small icon ion-search prefix padding"></i><input type="search" id="search" class="col-75" placeholder="Name, Phone #, Condition" >
     </div>
 
-      <p><em> Current Patients </em></p>
+   <p><em> Current Patients </em></p>
     <ul class="collapsible popout" >
       {{#each patients}}
         <li>
@@ -18,11 +18,11 @@
           <div class="collapsible-body light-grey">
             <form action="#">
               <div class="row">
-                <input type="checkbox" name="took_first_class" id="took_first_class" checked={{isTrue "took_first_class"}}/>
+                <input type="checkbox" name="took_first_class" id="took_first_class" checked={{isTrue "took_first_class"}} />
                 <label for="took_first_class">Took First Class</label>
               </div>
               <div class="row">
-                <input type="checkbox" id="took_practical" name="took_practical" checked={{isTrue "took_practical"}}/>
+                <input type="checkbox" id="took_practical" name="took_practical" checked={{isTrue "took_practical"}} />
                 <label for="took_practical">Took Practical</label>
               </div>
               <div class="row">
@@ -30,7 +30,7 @@
                 <label for="discharged">Discharged</label>
               </div>
               <div class="row">
-                <input type="checkbox" id="subscribed" name="subscribed" checked/>
+                <input type="checkbox" id="subscribed" name="subscribed" checked={{isTrue "subscribes_to_ivr"}} />
                 <label for="subscribed">Subscribed to IVR</label>
               </div>
             </form>
@@ -38,6 +38,36 @@
         </li>
       {{/each}}
     </ul>
+    
+    <p><em> DISCHARGED </em></p>
+    <ul class="collapsible popout" >
+      {{#each discharged }}
+        <li>
+          <div class="collapsible-header"> {{name}}, {{phone}}, {{condition}} </div>
+          <div class="collapsible-body light-grey">
+            <form action="#">
+              <div class="row">
+                <input type="checkbox" name="took_first_class" id="took_first_class" checked={{isTrue "took_first_class"}} />
+                <label for="took_first_class">Took First Class</label>
+              </div>
+              <div class="row">
+                <input type="checkbox" id="took_practical" name="took_practical" checked={{isTrue "took_practical"}} />
+                <label for="took_practical">Took Practical</label>
+              </div>
+              <div class="row">
+                <input type="checkbox" id="discharged" name="discharged" checked={{isTrue "discharged"}} />
+                <label for="discharged">Discharged</label>
+              </div>
+              <div class="row">
+                <input type="checkbox" id="subscribed" name="subscribed" checked={{isTrue "subscribes_to_ivr"}} />
+                <label for="subscribed">Subscribed to IVR</label>
+              </div>
+            </form>
+          </div>
+        </li>
+      {{/each}}
+    </ul>
+    
   {{/ionContent}}
 {{/ionView}}
   

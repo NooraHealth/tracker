@@ -1,4 +1,14 @@
 Template.listPatients.helpers
+  discharged: ()->
+    Meteor.initializeCollapsible()
+    console.log "SEARCHING"
+    search = Session.get "search_query"
+    console.log typeof search
+    re = new RegExp search
+    console.log re
+    #return Patients.find {$or: [{ name: { $regex: re }, phone: { $regex: re }, condition: { $regex: re} }]  }
+    return Patients.find { discharged: true }
+
   patients: ()->
     Meteor.initializeCollapsible()
     console.log "SEARCHING"
@@ -13,7 +23,7 @@ Template.listPatients.helpers
     patient = Template.currentData()
     console.log query
     console.log patient
-    console.log patient[query]
+    console.log patient[query] == true
     return patient[query] == true
 
 Template.listPatients.onRendered ()->
