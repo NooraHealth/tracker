@@ -11,6 +11,7 @@ Template.listPatients.helpers
 
   isTrue: ( query )->
     patient = Template.currentData()
+    console.log query
     console.log patient
     console.log patient[query]
     return patient[query] == true
@@ -31,22 +32,22 @@ Template.listPatients.events
     Session.set "search_query", search
     Meteor.initializeCollapsible()
 
-  "change #subscribed": ( e )->
+  "change input[name=subscribed]": ( e )->
     subscribed = $(e.target).is ":checked"
     Patients.update { _id: @._id }, { $set: { subscribed_to_ivr: subscribed }}
     Meteor.initializeCollapsible()
 
-  "change #took_practical": ( e )->
+  "change input[name=took_practical]": ( e )->
     tookPractical = $(e.target).is ":checked"
     Patients.update { _id: @._id }, { $set: { took_practical: tookPractical }}
     Meteor.initializeCollapsible()
 
-  "change #discharged": ( e )->
+  "change input[name=discharged]": ( e )->
     discharged = $(e.target).is ":checked"
     Patients.update { _id: @._id }, { $set: { discharged: discharged }}
     Meteor.initializeCollapsible()
 
-  "change #took_first_class": ( e )->
+  "change input[name=took_first_class]": ( e )->
     tookClass = $(e.target).is ":checked"
     Patients.update { _id: @._id }, { $set: { took_first_class: tookClass} }
     Meteor.initializeCollapsible()
