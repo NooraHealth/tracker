@@ -1,6 +1,7 @@
 Template.listPatients.helpers
   patients: ()->
     Meteor.initializeCollapsible()
+    console.log "SEARCHING"
     search = Session.get "search_query"
     console.log typeof search
     re = new RegExp search
