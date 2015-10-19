@@ -1,29 +1,19 @@
 Template.listPatients.helpers
   discharged: ()->
     Meteor.initializeCollapsible()
-    console.log "SEARCHING"
     search = Session.get "search_query"
-    console.log typeof search
     re = new RegExp search
-    console.log re
     #return Patients.find {$or: [{ name: { $regex: re }, phone: { $regex: re }, condition: { $regex: re} }]  }
     return Patients.find { discharged: true }, { $sort: { name: -1 }}
 
   patients: ()->
     Meteor.initializeCollapsible()
-    console.log "SEARCHING"
     search = Session.get "search_query"
-    console.log typeof search
     re = new RegExp search
-    console.log re
-    #return Patients.find {$or: [{ name: { $regex: re }, phone: { $regex: re }, condition: { $regex: re} }]  }
     return Patients.find {$or: [ {name: { $regex: re } }, {phone: {$regex: re}}, {condition: { $regex: re }}] , $and: [{ discharged: false }] } , { $sort: { name: -1 }}
 
   isTrue: ( query )->
     patient = Template.currentData()
-    console.log query
-    console.log patient
-    console.log patient[query] == true
     return patient[query] == true
 
 Template.listPatients.onRendered ()->
@@ -38,7 +28,6 @@ Template.listPatients.events
   "keyup #search": ( e )->
     console.log "Setting search"
     search = $("#search").val()
-    console.log search
     Session.set "search_query", search
     Meteor.initializeCollapsible()
 
@@ -53,7 +42,14 @@ Template.listPatients.events
     Meteor.initializeCollapsible()
 
   "change input[name=discharged]": ( e )->
+    console.log "Discharged was toggles"
+    console.log @
     discharged = $(e.target).is ":checked"
+    id = $(e.target).find("form").attr "id"
+    console.log $(e.target)
+    console.log id
+    console.log Patients.findOne { _id: id }
+    console.log discharged
     Patients.update { _id: @._id }, { $set: { discharged: discharged }}
     Meteor.initializeCollapsible()
 
