@@ -4,12 +4,14 @@ Template.editPatient.events
     patientName = $("input[name=patient_name]").val()
     attender = $("input[name=attender_name]").val()
     phone = $("input[name=phone]").val()
+    lang = $("input[name=language]:checked").val()
     subscribe = $("input[name=subscribe]").is ":checked"
 
     patient = Patients.insert {
       name: patientName
       attender: attender
       phone: phone
+      language: lang
       subscribes_to_ivr: subscribe
       has_been_input_to_ivr_system: false
       discharged: false

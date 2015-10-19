@@ -26,7 +26,6 @@ Template.listPatients.events
     Router.go "editPatient", { id: id }
 
   "keyup #search": ( e )->
-    console.log "Setting search"
     search = $("#search").val()
     Session.set "search_query", search
     Meteor.initializeCollapsible()
@@ -42,14 +41,8 @@ Template.listPatients.events
     Meteor.initializeCollapsible()
 
   "change input[name=discharged]": ( e )->
-    console.log "Discharged was toggles"
-    console.log @
     discharged = $(e.target).is ":checked"
     id = $(e.target).find("form").attr "id"
-    console.log $(e.target)
-    console.log id
-    console.log Patients.findOne { _id: id }
-    console.log discharged
     Patients.update { _id: @._id }, { $set: { discharged: discharged }}
     Meteor.initializeCollapsible()
 
