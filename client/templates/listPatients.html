@@ -18,20 +18,20 @@
           <div class="collapsible-body light-grey">
             <form action="#">
               <div class="row">
-                <input type="checkbox" name="took_first_class" id="took_first_class" checked={{isTrue "took_first_class"}} />
-                <label for="took_first_class">Took First Class</label>
+                <input type="checkbox" name="took_first_class" id="took_first_class{{_id}}" checked={{isTrue "took_first_class"}} />
+                <label for="took_first_class{{_id}}">Took First Class</label>
               </div>
               <div class="row">
-                <input type="checkbox" id="took_practical" name="took_practical" checked={{isTrue "took_practical"}} />
-                <label for="took_practical">Took Practical</label>
+                <input type="checkbox" id="took_practical{{_id}}" name="took_practical" checked={{isTrue "took_practical"}} />
+                <label for="took_practical{{_id}}">Took Practical</label>
               </div>
               <div class="row">
-                <input type="checkbox" id="discharged" name="discharged" checked={{isTrue "discharged"}} />
-                <label for="discharged">Discharged</label>
+                <input type="checkbox" id="discharged{{_id}}" name="discharged" checked={{isTrue "discharged"}} />
+                <label for="discharged{{_id}}">Discharged</label>
               </div>
               <div class="row">
-                <input type="checkbox" id="subscribed" name="subscribed" checked={{isTrue "subscribes_to_ivr"}} />
-                <label for="subscribed">Subscribed to IVR</label>
+                <input type="checkbox" id="subscribed{{_id}}" name="subscribed" checked={{isTrue "subscribes_to_ivr"}} />
+                <label for="subscribed{{_id}}">Subscribed to IVR</label>
               </div>
             </form>
           </div>
@@ -47,20 +47,20 @@
           <div class="collapsible-body light-grey">
             <form action="#" id="{{_id}}">
               <div class="row">
-                <input type="checkbox" name="took_first_class" id="tfc_discharged" checked={{isTrue "took_first_class"}} />
-                <label for="tfc_discharged">Took First Class</label>
+                <input type="checkbox" name="took_first_class" id="tfc_discharged{{_id}}" checked={{isTrue "took_first_class"}} />
+                <label for="tfc_discharged{{_id}}">Took First Class</label>
               </div>
               <div class="row">
-                <input type="checkbox" id="tp_discharged" name="took_practical" checked={{isTrue "took_practical"}} />
-                <label for="tp_discharged">Took Practical</label>
+                <input type="checkbox" id="tp_discharged{{_id}}" name="took_practical" checked={{isTrue "took_practical"}} />
+                <label for="tp_discharged{{_id}}">Took Practical</label>
               </div>
               <div class="row">
-                <input type="checkbox" id="d_discharged" name="discharged" checked={{isTrue "discharged"}} />
-                <label for="d_discharged">Discharged</label>
+                <input type="checkbox" id="d_discharged{{_id}}" name="discharged" checked={{isTrue "discharged"}} />
+                <label for="d_discharged{{_id}}">Discharged</label>
               </div>
               <div class="row">
-                <input type="checkbox" id="s_discharged" name="subscribed" checked={{isTrue "subscribes_to_ivr"}} />
-                <label for="s_discharged">Subscribed to IVR</label>
+                <input type="checkbox" id="s_discharged{{_id}}" name="subscribed" checked={{isTrue "subscribes_to_ivr"}} />
+                <label for="s_discharged{{_id}}">Subscribed to IVR</label>
               </div>
             </form>
           </div>
