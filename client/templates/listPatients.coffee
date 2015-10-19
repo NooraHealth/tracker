@@ -4,7 +4,7 @@ Template.listPatients.helpers
     search = Session.get "search_query"
     re = new RegExp search
     #return Patients.find {$or: [{ name: { $regex: re }, phone: { $regex: re }, condition: { $regex: re} }]  }
-    return Patients.find { discharged: true }, { $sort: { name: -1 }}
+    return Patients.find {$or: [ {name: { $regex: re } }, {phone: {$regex: re}}, {condition: { $regex: re }}] , $and: [{ discharged: true }] } , { $sort: { name: -1 }}
 
   patients: ()->
     Meteor.initializeCollapsible()
