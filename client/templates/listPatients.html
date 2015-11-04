@@ -1,5 +1,8 @@
 <template name="listPatients">
-<p><a href="/" class="button button-large"> <i class="fa fa-arrow-circle-left"></i>Go Back</a></p>
+
+<div class="content-block">
+  <p><a href="/" class="button large-button color-green button-fill"> <i class="fa fa-arrow-circle-left icon-in-button"></i>Go Back</a></p>
+</div>
 
 <div class="list-block inset">
   <ul>
@@ -7,7 +10,7 @@
     <hr/>
     <li>
       <div class="item-content">
-        <div class="item-media"><i class="icon ion-search"></i></div>
+        <div class="item-media"><i class="fa fa-search fa-2x"></i></div>
         <div class="item-inner">
           <!--<div class="item-title label">Name</div>-->
           <div class="item-input">
@@ -34,69 +37,12 @@
   {{/each}}
 </div>  
 
-   <!--<p><em> Current Patients </em></p>-->
-    <!--<ul class="collapsible popout" >-->
-      <!--{{#each patients}}-->
-        <!--<li>-->
-          <!--<div class="collapsible-header"> {{name}}, {{phone}}, {{condition}} </div>-->
-          <!--<div class="collapsible-body light-grey">-->
-            <!--<form action="#">-->
-              <!--<div class="row">-->
-                <!--<input type="checkbox" name="took_first_class" id="took_first_class{{_id}}" checked={{isTrue "took_first_class"}} />-->
-                <!--<label for="took_first_class{{_id}}">Took First Class</label>-->
-              <!--</div>-->
-              <!--<div class="row">-->
-                <!--<input type="checkbox" id="took_practical{{_id}}" name="took_practical" checked={{isTrue "took_practical"}} />-->
-                <!--<label for="took_practical{{_id}}">Took Practical</label>-->
-              <!--</div>-->
-              <!--<div class="row">-->
-                <!--<input type="checkbox" id="discharged{{_id}}" name="discharged" checked={{isTrue "discharged"}} />-->
-                <!--<label for="discharged{{_id}}">Discharged</label>-->
-              <!--</div>-->
-              <!--<div class="row">-->
-                <!--<input type="checkbox" id="subscribed{{_id}}" name="subscribed" checked={{isTrue "subscribes_to_ivr"}} />-->
-                <!--<label for="subscribed{{_id}}">Subscribed to IVR</label>-->
-              <!--</div>-->
-            <!--</form>-->
-          <!--</div>-->
-        <!--</li>-->
-      <!--{{/each}}-->
-    <!--</ul>-->
-    
-    <!--<p><em> DISCHARGED </em></p>-->
-    <!--<ul class="collapsible popout" >-->
-      <!--{{#each discharged }}-->
-        <!--<li>-->
-          <!--<div class="collapsible-header"> {{name}}, {{phone}}, {{condition}} </div>-->
-          <!--<div class="collapsible-body light-grey">-->
-            <!--<form action="#" id="{{_id}}">-->
-              <!--<div class="row">-->
-                <!--<input type="checkbox" name="took_first_class" id="tfc_discharged{{_id}}" checked={{isTrue "took_first_class"}} />-->
-                <!--<label for="tfc_discharged{{_id}}">Took First Class</label>-->
-              <!--</div>-->
-              <!--<div class="row">-->
-                <!--<input type="checkbox" id="tp_discharged{{_id}}" name="took_practical" checked={{isTrue "took_practical"}} />-->
-                <!--<label for="tp_discharged{{_id}}">Took Practical</label>-->
-              <!--</div>-->
-              <!--<div class="row">-->
-                <!--<input type="checkbox" id="d_discharged{{_id}}" name="discharged" checked={{isTrue "discharged"}} />-->
-                <!--<label for="d_discharged{{_id}}">Discharged</label>-->
-              <!--</div>-->
-              <!--<div class="row">-->
-                <!--<input type="checkbox" id="s_discharged{{_id}}" name="subscribed" checked={{isTrue "subscribes_to_ivr"}} />-->
-                <!--<label for="s_discharged{{_id}}">Subscribed to IVR</label>-->
-              <!--</div>-->
-            <!--</form>-->
-          <!--</div>-->
-        <!--</li>-->
-      <!--{{/each}}-->
-    <!--</ul>-->
-    
 </template>
+
 <template name="patientInfo">
 <div class="accordion-item">
   <div class="accordion-item-toggle">
-    <i class="fa fa-pencil button button-fill">+</i>
+    <i class="icon-in-button fa fa-pencil button button-fill">+</i>
     <span> {{name}}, {{phone}}</span>
   </div>
 

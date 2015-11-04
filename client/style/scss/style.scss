@@ -3,8 +3,6 @@
 /*@import "{wolves:bourbon}/_bourbon";*/
 /*@import "{meteoric:ionicons-sass}/_ionicons";*/
 
-@import '.meteor/local/build/programs/server/assets/packages/meteoric_ionicons-sass/_ionicons';
-@import 'packages/ionic-sass/_ionic.scss';
 /*@import '{}/packages/ionic-sass/_ionic.scss';*/
 @import '_variables'; 
 
@@ -82,6 +80,12 @@ a {
 
 .button-big {
   width: 100%;
+}
+
+.icon-in-button {
+  display: inline;
+  vertical-align: middle;
+  padding: 10px;
 }
 
 .margin-top {
