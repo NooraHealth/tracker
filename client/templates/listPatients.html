@@ -1,8 +1,25 @@
 <template name="listPatients">
+<p><a href="/" class="button button-large"> <i class="fa fa-arrow-circle-left"></i>Go Back</a></p>
 
-    <div class="row padding-top-lg">
-      <i class="small icon ion-search prefix padding"></i><input type="search" id="search" class="col-75" placeholder="Name, Phone #, Condition" >
-    </div>
+<div class="list-block inset">
+  <ul>
+    <!-- Text inputs -->
+    <hr/>
+    <li>
+      <div class="item-content">
+        <div class="item-media"><i class="icon ion-search"></i></div>
+        <div class="item-inner">
+          <!--<div class="item-title label">Name</div>-->
+          <div class="item-input">
+            <input type="search" id="search" class="col-75" placeholder="Name, Phone #, Condition" >
+          </div>
+        </div>
+      </div>
+    </li>
+    <hr/>
+  </ul>
+</div>
+
 <div class="content-block-title">Custom Accordion</div>
 <div class="content-block accordion-list custom-accordion">
   {{#each patients}}
@@ -79,9 +96,8 @@
 <template name="patientInfo">
 <div class="accordion-item">
   <div class="accordion-item-toggle">
-    <i class="icon icon-plus">+</i>
-    <i class="icon icon-minus">-</i>
-    <span>{{name}}, {{phone}}</span>
+    <i class="fa fa-pencil button button-fill">+</i>
+    <span> {{name}}, {{phone}}</span>
   </div>
 
   <div class="accordion-item-content">
@@ -140,4 +156,5 @@
     </div>       
   </div>
 </div>
+<hr/>
 </template> 
