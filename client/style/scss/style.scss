@@ -82,6 +82,16 @@ a {
   width: 100%;
 }
 
+.button-bordered {
+  border-style: solid;
+  border-width: 1px;
+}
+
+.button.active {
+  background: #007aff;
+  color: #fff;
+}
+
 .icon-in-button {
   display: inline;
   vertical-align: middle;

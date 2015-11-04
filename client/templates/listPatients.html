@@ -1,18 +1,15 @@
 <template name="listPatients">
-
 <div class="content-block">
   <p><a href="/" class="button large-button color-green button-fill"> <i class="fa fa-arrow-circle-left icon-in-button"></i>Go Back</a></p>
 </div>
 
 <div class="list-block inset">
   <ul>
-    <!-- Text inputs -->
     <hr/>
     <li>
       <div class="item-content">
         <div class="item-media"><i class="fa fa-search fa-2x"></i></div>
         <div class="item-inner">
-          <!--<div class="item-title label">Name</div>-->
           <div class="item-input">
             <input type="search" id="search" class="col-75" placeholder="Name, Phone #, Condition" >
           </div>
@@ -23,19 +20,38 @@
   </ul>
 </div>
 
-<div class="content-block-title">Custom Accordion</div>
-<div class="content-block accordion-list custom-accordion">
-  {{#each patients}}
-    {{>patientInfo}}
-  {{/each}}
-</div>
-
-<div class="content-block-title">Discharged Patients</div>
-<div class="content-block accordion-list custom-accordion">
-  {{#each discharged}}
-    {{>patientInfo}}
-  {{/each}}
-</div>  
+<div class="content-block">
+    <!-- Buttons row as tabs controller -->
+    <div class="buttons-row">
+      <!-- Link to 1st tab, active -->
+      <a href="#active" class="tab-link active button button-bordered">Active</a>
+      <!-- Link to 2nd tab -->
+      <a href="#discharged" class="tab-link button button-bordered">Discharged</a>
+    </div>
+  </div>
+  <!-- Tabs, tabs wrapper -->
+  <div class="tabs">
+    <!-- Tab 1, active by default -->
+    <div id="active" class="tab active">
+      <div class="content-block">
+        <div class="content-block accordion-list custom-accordion">
+          {{#each patients}}
+            {{>patientInfo}}
+          {{/each}}
+        </div>
+      </div>
+    </div>
+    <!-- Tab 2 -->
+    <div id="discharged" class="tab">
+      <div class="content-block">
+        <div class="content-block accordion-list custom-accordion">
+          {{#each discharged}}
+            {{>patientInfo}}
+          {{/each}}
+        </div>
+      </div>
+    </div>
+  </div>
 
 </template>
 
@@ -49,10 +65,8 @@
   <div class="accordion-item-content">
     <div class="list-block">
       <ul>
-        <!-- Single chekbox item -->
         <li>
           <label class="label-checkbox item-content">
-            <!-- Checked by default -->
             <input type="checkbox" name="took_first_class" id="took_first_class{{_id}}" checked={{isTrue "took_first_class"}} />
             <div class="item-media">
               <i class="icon icon-form-checkbox"></i>
@@ -62,7 +76,6 @@
             </div>
           </label>
         </li>
-        <!-- Another chekbox item -->
         <li>
           <label class="label-checkbox item-content">
             <input type="checkbox" id="took_practical{{_id}}" name="took_practical" checked={{isTrue "took_practical"}} />
@@ -74,7 +87,6 @@
             </div>
           </label>
         </li>
-        <!-- Another chekbox item -->
         <li>
           <label class="label-checkbox item-content">
             <input type="checkbox" id="discharged{{_id}}" name="discharged" checked={{isTrue "discharged"}} />
@@ -86,7 +98,6 @@
             </div>
           </label>
         </li>
-        <!-- Another chekbox item -->
         <li>
           <label class="label-checkbox item-content">
             <input type="checkbox" id="subscribed{{_id}}" name="subscribed" checked={{isTrue "subscribes_to_ivr"}} />
