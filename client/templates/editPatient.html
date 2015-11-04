@@ -1,36 +1,127 @@
 <template name="editPatient">
-    <div class="row padding padding-top-lg ">
-      <form class="full-width">
-        <div class="input-field">
-          <input type="text" id="name" name="patient_name" placeholder="Patient Name" value={{name}}>
-          <label for="name" class="full-width">Patient Name</label>
-        </div>
-        <div class="input-field">
-          <input type="text" id="name" name="attender_name" placeholder="Patient Name" value={{name}}>
-          <label for="name" class="full-width">Attender Name</label>
-        </div>
-        <div class="input-field">
-          <input type="number" name="phone" placeholder="Phone #" value="{{phone}}">
-          <label class="full-width">Phone Number</label>
-        </div>
+<div class="content-block-title">Patient Information</div>
+<div class="list-block inset">
+  <ul>
+    <!-- Text inputs -->
 
-        <div class="input-field">
-          <input type="radio" name="language" id="Kannada" value="Kannada">
-          <label for="Kannada">Kannada</label>
+    <hr/>
+    <li>
+      <div class="item-content">
+        <div class="item-media"><i class="icon icon-form-name"></i></div>
+        <div class="item-inner">
+          <!--<div class="item-title label">Name</div>-->
+          <div class="item-input">
+            <input type="text" name="patient_name" placeholder="Patient Name" value={{name}}>
+          </div>
         </div>
-        <div class="input-field">
-          <input type="radio" name="language" id="Hindi" value="Hindi">
-          <label for="Hindi">Hindi</label>
+      </div>
+    </li>
+    <hr/>
+    <li>
+      <div class="item-content">
+        <div class="item-media"><i class="icon icon-form-name"></i></div>
+        <div class="item-inner">
+          <!--<div class="item-title label">Attender Name</div>-->
+          <div class="item-input">
+            <input type="text" name="attender_name" placeholder="Attender Name" value={{attender_name}}>
+          </div>
         </div>
+      </div>
+    </li>
+    <hr/>
+    <li>
+      <div class="item-content">
+        <div class="item-media"><i class="icon icon-form-tel"></i></div>
+        <div class="item-inner">
+          <!--<div class="item-title label">Phone</div>-->
+          <div class="item-input">
+            <input type="number" name="phone" value={{phone}} placeholder="Phone Number">
+          </div>
+        </div>
+      </div>
+    </li>
+    <hr/>
+    <li>
+      <label class="label-radio item-content">
+        <!-- Checked by default -->
+        <input type="radio" name="language" value="Kannada" checked="checked">
+        <div class="item-media">
+          <i class="icon icon-form-radio"></i>
+        </div>
+        <div class="item-inner">
+          <div class="item-title">Kannada</div>
+        </div>
+      </label>
+    </li>
+    <li>
+      <label class="label-radio item-content">
+        <input type="radio" name="language" value="Hindi">
+        <div class="item-media">
+          <i class="icon icon-form-radio"></i>
+        </div>
+        <div class="item-inner">
+          <div class="item-title">Hindi</div>
+        </div>
+      </label>
+    </li>
+    <li>
+      <label class="label-radio item-content">
+        <input type="radio" name="language" value="English">
+        <div class="item-media">
+          <i class="icon icon-form-radio"></i>
+        </div>
+        <div class="item-inner">
+          <div class="item-title">English</div>
+        </div>
+      </label>
+    </li>
+    <hr/>
+    <!-- Another radio input -->
+    <li>
+      <label class="label-checkbox item-content">
+        <input type="checkbox" name="subscribe" value="true">
+        <div class="item-media">
+          <i class="icon icon-form-checkbox"></i>
+        </div>
+        <div class="item-inner">
+          <div class="item-title">Subscribe to Phone Messages</div>
+        </div>
+      </label>
+    </li>
+  </ul>
+  <p><a id="save_patient" href="{{pathFor 'home'}}" class="button button-round button-fill button-big">Save Patient</a></p>
+</div>    
 
-        <div class="input-field padding">
-          <input type="checkbox" id="subscribe" name="subscribe"/>
-          <label for="subscribe"> <b class="black-text">Subscribe to Phone Messaging</b></label>
-        </div>
+<!--<div class="row padding padding-top-lg ">-->
+      <!--<form class="full-width">-->
+        <!--<div class="input-field">-->
+        <!--</div>-->
+        <!--<div class="input-field">-->
+          <!--<input type="text" id="name" name="attender_name" placeholder="Patient Name" value={{name}}>-->
+          <!--<label for="name" class="full-width">Attender Name</label>-->
+        <!--</div>-->
+        <!--<div class="input-field">-->
+          <!--<input type="number" name="phone" placeholder="Phone #" value="{{phone}}">-->
+          <!--<label class="full-width">Phone Number</label>-->
+        <!--</div>-->
 
-        <div class='input-field'>
-          <a id="save_patient" class="submit button button-calm full-width" href="{{pathFor 'home'}}"> Save Patient </a>
-        </div>
-      </form>
-    </div>
+        <!--<div class="input-field">-->
+          <!--<input type="radio" name="language" id="Kannada" value="Kannada">-->
+          <!--<label for="Kannada">Kannada</label>-->
+        <!--</div>-->
+        <!--<div class="input-field">-->
+          <!--<input type="radio" name="language" id="Hindi" value="Hindi">-->
+          <!--<label for="Hindi">Hindi</label>-->
+        <!--</div>-->
+
+        <!--<div class="input-field padding">-->
+          <!--<input type="checkbox" id="subscribe" name="subscribe"/>-->
+          <!--<label for="subscribe"> <b class="black-text">Subscribe to Phone Messaging</b></label>-->
+        <!--</div>-->
+
+        <!--<div class='input-field'>-->
+          <!--<a id="save_patient" class="submit button button-calm full-width" href="{{pathFor 'home'}}"> Save Patient </a>-->
+        <!--</div>-->
+      <!--</form>-->
+    <!--</div>-->
 </template>

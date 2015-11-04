@@ -20,14 +20,6 @@ Template.editPatient.events
 
     console.log Patients.findOne { _id: patient}
 
-Template.editPatient.onRendered ()->
-  $("#date_of_admission").pickadate
-    max: new Date()
-  $("select").material_select()
-  if Template.currentData()
-    $("#date_of_admission").val Template.currentData().date_of_admission
-
-
 Template.editPatient.helpers
   isCondition: (condition)->
     console.log "Is condition", condition
