@@ -1,74 +1,143 @@
 <template name="listPatients">
-  {{#contentFor "headerTitle"}}
-    <a href="{{pathFor 'home'}}" class="button icon-left ion-arrow-left-c button-clear button-dark"> GO BACK </a>
 
-{{/contentFor }}
-
-{{#ionView}}
-  {{#ionContent}}
     <div class="row padding-top-lg">
       <i class="small icon ion-search prefix padding"></i><input type="search" id="search" class="col-75" placeholder="Name, Phone #, Condition" >
     </div>
+<div class="content-block-title">Custom Accordion</div>
+<div class="content-block accordion-list custom-accordion">
+  {{#each patients}}
+    {{>patientInfo}}
+  {{/each}}
+</div>
 
-   <p><em> Current Patients </em></p>
-    <ul class="collapsible popout" >
-      {{#each patients}}
-        <li>
-          <div class="collapsible-header"> {{name}}, {{phone}}, {{condition}} </div>
-          <div class="collapsible-body light-grey">
-            <form action="#">
-              <div class="row">
-                <input type="checkbox" name="took_first_class" id="took_first_class{{_id}}" checked={{isTrue "took_first_class"}} />
-                <label for="took_first_class{{_id}}">Took First Class</label>
-              </div>
-              <div class="row">
-                <input type="checkbox" id="took_practical{{_id}}" name="took_practical" checked={{isTrue "took_practical"}} />
-                <label for="took_practical{{_id}}">Took Practical</label>
-              </div>
-              <div class="row">
-                <input type="checkbox" id="discharged{{_id}}" name="discharged" checked={{isTrue "discharged"}} />
-                <label for="discharged{{_id}}">Discharged</label>
-              </div>
-              <div class="row">
-                <input type="checkbox" id="subscribed{{_id}}" name="subscribed" checked={{isTrue "subscribes_to_ivr"}} />
-                <label for="subscribed{{_id}}">Subscribed to IVR</label>
-              </div>
-            </form>
-          </div>
-        </li>
-      {{/each}}
-    </ul>
+<div class="content-block-title">Discharged Patients</div>
+<div class="content-block accordion-list custom-accordion">
+  {{#each discharged}}
+    {{>patientInfo}}
+  {{/each}}
+</div>  
+
+   <!--<p><em> Current Patients </em></p>-->
+    <!--<ul class="collapsible popout" >-->
+      <!--{{#each patients}}-->
+        <!--<li>-->
+          <!--<div class="collapsible-header"> {{name}}, {{phone}}, {{condition}} </div>-->
+          <!--<div class="collapsible-body light-grey">-->
+            <!--<form action="#">-->
+              <!--<div class="row">-->
+                <!--<input type="checkbox" name="took_first_class" id="took_first_class{{_id}}" checked={{isTrue "took_first_class"}} />-->
+                <!--<label for="took_first_class{{_id}}">Took First Class</label>-->
+              <!--</div>-->
+              <!--<div class="row">-->
+                <!--<input type="checkbox" id="took_practical{{_id}}" name="took_practical" checked={{isTrue "took_practical"}} />-->
+                <!--<label for="took_practical{{_id}}">Took Practical</label>-->
+              <!--</div>-->
+              <!--<div class="row">-->
+                <!--<input type="checkbox" id="discharged{{_id}}" name="discharged" checked={{isTrue "discharged"}} />-->
+                <!--<label for="discharged{{_id}}">Discharged</label>-->
+              <!--</div>-->
+              <!--<div class="row">-->
+                <!--<input type="checkbox" id="subscribed{{_id}}" name="subscribed" checked={{isTrue "subscribes_to_ivr"}} />-->
+                <!--<label for="subscribed{{_id}}">Subscribed to IVR</label>-->
+              <!--</div>-->
+            <!--</form>-->
+          <!--</div>-->
+        <!--</li>-->
+      <!--{{/each}}-->
+    <!--</ul>-->
     
-    <p><em> DISCHARGED </em></p>
-    <ul class="collapsible popout" >
-      {{#each discharged }}
-        <li>
-          <div class="collapsible-header"> {{name}}, {{phone}}, {{condition}} </div>
-          <div class="collapsible-body light-grey">
-            <form action="#" id="{{_id}}">
-              <div class="row">
-                <input type="checkbox" name="took_first_class" id="tfc_discharged{{_id}}" checked={{isTrue "took_first_class"}} />
-                <label for="tfc_discharged{{_id}}">Took First Class</label>
-              </div>
-              <div class="row">
-                <input type="checkbox" id="tp_discharged{{_id}}" name="took_practical" checked={{isTrue "took_practical"}} />
-                <label for="tp_discharged{{_id}}">Took Practical</label>
-              </div>
-              <div class="row">
-                <input type="checkbox" id="d_discharged{{_id}}" name="discharged" checked={{isTrue "discharged"}} />
-                <label for="d_discharged{{_id}}">Discharged</label>
-              </div>
-              <div class="row">
-                <input type="checkbox" id="s_discharged{{_id}}" name="subscribed" checked={{isTrue "subscribes_to_ivr"}} />
-                <label for="s_discharged{{_id}}">Subscribed to IVR</label>
-              </div>
-            </form>
-          </div>
-        </li>
-      {{/each}}
-    </ul>
+    <!--<p><em> DISCHARGED </em></p>-->
+    <!--<ul class="collapsible popout" >-->
+      <!--{{#each discharged }}-->
+        <!--<li>-->
+          <!--<div class="collapsible-header"> {{name}}, {{phone}}, {{condition}} </div>-->
+          <!--<div class="collapsible-body light-grey">-->
+            <!--<form action="#" id="{{_id}}">-->
+              <!--<div class="row">-->
+                <!--<input type="checkbox" name="took_first_class" id="tfc_discharged{{_id}}" checked={{isTrue "took_first_class"}} />-->
+                <!--<label for="tfc_discharged{{_id}}">Took First Class</label>-->
+              <!--</div>-->
+              <!--<div class="row">-->
+                <!--<input type="checkbox" id="tp_discharged{{_id}}" name="took_practical" checked={{isTrue "took_practical"}} />-->
+                <!--<label for="tp_discharged{{_id}}">Took Practical</label>-->
+              <!--</div>-->
+              <!--<div class="row">-->
+                <!--<input type="checkbox" id="d_discharged{{_id}}" name="discharged" checked={{isTrue "discharged"}} />-->
+                <!--<label for="d_discharged{{_id}}">Discharged</label>-->
+              <!--</div>-->
+              <!--<div class="row">-->
+                <!--<input type="checkbox" id="s_discharged{{_id}}" name="subscribed" checked={{isTrue "subscribes_to_ivr"}} />-->
+                <!--<label for="s_discharged{{_id}}">Subscribed to IVR</label>-->
+              <!--</div>-->
+            <!--</form>-->
+          <!--</div>-->
+        <!--</li>-->
+      <!--{{/each}}-->
+    <!--</ul>-->
     
-  {{/ionContent}}
-{{/ionView}}
-  
 </template>
+<template name="patientInfo">
+<div class="accordion-item">
+  <div class="accordion-item-toggle">
+    <i class="icon icon-plus">+</i>
+    <i class="icon icon-minus">-</i>
+    <span>{{name}}, {{phone}}</span>
+  </div>
+
+  <div class="accordion-item-content">
+    <div class="list-block">
+      <ul>
+        <!-- Single chekbox item -->
+        <li>
+          <label class="label-checkbox item-content">
+            <!-- Checked by default -->
+            <input type="checkbox" name="took_first_class" id="took_first_class{{_id}}" checked={{isTrue "took_first_class"}} />
+            <div class="item-media">
+              <i class="icon icon-form-checkbox"></i>
+            </div>
+            <div class="item-inner">
+              <div class="item-title">Took First Class</div>
+            </div>
+          </label>
+        </li>
+        <!-- Another chekbox item -->
+        <li>
+          <label class="label-checkbox item-content">
+            <input type="checkbox" id="took_practical{{_id}}" name="took_practical" checked={{isTrue "took_practical"}} />
+            <div class="item-media">
+              <i class="icon icon-form-checkbox"></i>
+            </div>
+            <div class="item-inner">
+              <div class="item-title">Took Practical</div>
+            </div>
+          </label>
+        </li>
+        <!-- Another chekbox item -->
+        <li>
+          <label class="label-checkbox item-content">
+            <input type="checkbox" id="discharged{{_id}}" name="discharged" checked={{isTrue "discharged"}} />
+            <div class="item-media">
+              <i class="icon icon-form-checkbox"></i>
+            </div>
+            <div class="item-inner">
+              <div class="item-title">Discharged</div>
+            </div>
+          </label>
+        </li>
+        <!-- Another chekbox item -->
+        <li>
+          <label class="label-checkbox item-content">
+            <input type="checkbox" id="subscribed{{_id}}" name="subscribed" checked={{isTrue "subscribes_to_ivr"}} />
+            <div class="item-media">
+              <i class="icon icon-form-checkbox"></i>
+            </div>
+            <div class="item-inner">
+              <div class="item-title">Subscribed To Phone Messages</div>
+            </div>
+          </label>
+        </li>
+      </ul>
+    </div>       
+  </div>
+</div>
+</template> 

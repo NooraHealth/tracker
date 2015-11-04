@@ -20,10 +20,3 @@ Template.editPatient.events
 
     console.log Patients.findOne { _id: patient}
 
-Template.editPatient.helpers
-  isCondition: (condition)->
-    console.log "Is condition", condition
-    console.log Template.currentData()
-    if !Template.currentData()
-      return condition == "Cardiac Surgery"
-    return Template.currentData().condition == condition
