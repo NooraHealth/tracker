@@ -1,9 +1,19 @@
 <template name="layout">
-  {{#ionBody}}
-    {{>ionNavBar class='nav z-depth-1'}}
-    {{#ionNavView}}
-      {{>yield}}
-     {{/ionNavView}}
-  {{/ionBody}}
+ <div class="views">
+    <div class="view view-main">
+      <div class="pages">
+        <!-- Now we need additional "navbar-fixed" and "toolbar-fixed" classes on Page -->
+        <div data-page="index" class="page navbar-fixed toolbar-fixed">
+            
+          <a href="{{pathFor 'home'}}"><img class="logo" alt="Noora Health" src="/NHlogo.png"/></a>
+ 
+          <div class="page-content">
+            {{>yield}}
+          </div>
+            
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 

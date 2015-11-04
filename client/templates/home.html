@@ -1,22 +1,11 @@
 <template name="home">
-  {{#contentFor "headerTitle"}}
-    <a href="{{pathFor 'home'}}"><img class="logo" alt="Noora Health" src="/NHlogo.png"/></a>
-  {{/contentFor }}
 
-  {{#ionView}}
-    {{#ionContent}}
-    <div class="padding-horizontal">
-      <div class='row valign-wrapper margin-top'>
-        <a class="valign button button-calm full-width col-center flow-text" href="{{pathFor 'editPatient'}}"><i class="icon ion-person-add"></i> New Patient </a>
-      </div>
+  <div>
 
-      <div class='row valign-wrapper'>
-        <a href="{{pathFor 'listPatients'}}" class="valign col-center full-width button-calm button flow-text"><i class="icon ion-person-stalker"></i> Track Patients </a>
-      </div>
+    <p><a href="{{pathFor 'editPatient'}}" class="button button-round button-fill button-big">New Patient</a></p>
+  <p><a href="{{pathFor 'listPatients'}}" class="button button-round button-big button-fill">Track Patients</a></p>
 
-    </div>
-    {{/ionContent}}
-  {{/ionView}}
+  </div>
 
 </template>
 

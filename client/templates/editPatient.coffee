@@ -7,6 +7,7 @@ Template.editPatient.events
     lang = $("input[name=language]:checked").val()
     subscribe = $("input[name=subscribe]").is ":checked"
 
+
     patient = Patients.insert {
       name: patientName
       attender: attender
