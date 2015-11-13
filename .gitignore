@@ -2,6 +2,7 @@
 *.swo
 /server/startup.coffee
 .uploads/
+settings.json
 
 public/
 mup.json
