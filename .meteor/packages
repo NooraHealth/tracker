@@ -26,3 +26,4 @@ fourseven:scss@=3.2.0
 ground:db
 interwebs:framework7
 fortawesome:fontawesome
+momentjs:moment
