@@ -6,7 +6,7 @@ Template.editPatient.events
     phone = $("input[name=phone]").val()
     lang = $("input[name=language]:checked").val()
     subscribe = $("input[name=subscribe]").is ":checked"
-    date = moment().toDate()
+    date = moment().unix()
 
     patient = Patients.insert {
       name: patientName
@@ -17,6 +17,9 @@ Template.editPatient.events
       has_been_input_to_ivr_system: false
       discharged: false
       date_added: date
+      date_discharged: null
+      date_first_class: null
+      date_practical: null
     }
 
     console.log Patients.findOne { _id: patient}

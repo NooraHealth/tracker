@@ -31,20 +31,23 @@ Template.listPatients.events
     console.log @
     tookPractical = $(e.target).is ":checked"
     console.log "Took practical?", tookPractical
-    Patients.update { _id: @._id }, { $set: { took_practical: tookPractical }}
+    date = moment().unix()
+    Patients.update { _id: @._id }, { $set: { took_practical: tookPractical , date_practical: date}}
 
   "change input[name=discharged]": ( e )->
     console.log "Discharged checked"
     console.log @
     discharged = $(e.target).is ":checked"
     id = $(e.target).find("form").attr "id"
-    Patients.update { _id: @._id }, { $set: { discharged: discharged }}
+    date = moment().unix()
+    Patients.update { _id: @._id }, { $set: { discharged: discharged , date_discharged: date }}
 
   "change input[name=took_first_class]": ( e )->
     console.log "Took First Class checked"
     console.log @
     tookClass = $(e.target).is ":checked"
-    Patients.update { _id: @._id }, { $set: { took_first_class: tookClass} }
+    date = moment().unix()
+    Patients.update { _id: @._id }, { $set: { took_first_class: tookClass, date_first_class: date } }
 
 Template.patientInfo.helpers
   isTrue: ( query )->
