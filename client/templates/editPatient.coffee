@@ -6,21 +6,28 @@ Template.editPatient.events
     phone = $("input[name=phone]").val()
     lang = $("input[name=language]:checked").val()
     subscribe = $("input[name=subscribe]").is ":checked"
-    date = moment().unix()
+    isTest = Meteor.settings.public.isDevMode
+    date = moment().toDate()
 
-    patient = Patients.insert {
+    patient = {
       name: patientName
       attender: attender
       phone: phone
       language: lang
       subscribes_to_ivr: subscribe
       has_been_input_to_ivr_system: false
+      took_first_class: false
+      took_practical: false
       discharged: false
       date_added: date
       date_discharged: null
       date_first_class: null
       date_practical: null
+      hospital: "Jayadeva"
+      test: isTest
     }
+
+    Meteor.call "insertPatient", patient
 
     console.log Patients.findOne { _id: patient}
 
