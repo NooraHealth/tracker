@@ -29,5 +29,11 @@ Template.editPatient.events
 
     Meteor.call "insertPatient", patient
 
+    analytics.track "Action", {
+      location: "newPatient",
+      text: "submit",
+      color: "blue"
+    }
+
     console.log Patients.findOne { _id: patient}
 

@@ -9,6 +9,8 @@ Router.map ()->
     name: "home"
     template: 'home'
     layoutTemplate: 'layout'
+    onAfter: ()->
+      analytics.page()
   }
 
   this.route '/listPatients', {
@@ -16,6 +18,8 @@ Router.map ()->
     name: "listPatients"
     template: 'listPatients'
     layoutTemplate: 'layout'
+    onAfter: ()->
+      analytics.page()
   }
 
   this.route '/editPatient', {
@@ -23,6 +27,8 @@ Router.map ()->
     name: "editPatient"
     template: 'editPatient'
     layoutTemplate: 'layout'
+    onAfter: ()->
+      analytics.page()
     data: ()->
       console.log "Going to edit patient"
       Session.set "search_query", ""
