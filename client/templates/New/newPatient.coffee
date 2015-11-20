@@ -6,6 +6,10 @@ Template.newPatient.events
     date = moment().toDate()
     hospital = getHospital()
 
+    if not lang
+      swal("Error", "Please select the patient language", "error")
+      return
+
     if phone.length != 10
       swal("Error", "Patient phone must be 10 digits", "error")
       return
