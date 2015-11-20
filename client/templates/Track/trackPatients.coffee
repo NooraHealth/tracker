@@ -1,4 +1,4 @@
-Template.listPatients.helpers
+Template.trackPatients.helpers
   discharged: ()->
     search = Session.get "search_query"
     re = new RegExp search
@@ -10,7 +10,12 @@ Template.listPatients.helpers
     re = new RegExp search
     return Patients.find {$or: [ {name: { $regex: re } }, {phone: {$regex: re}}, {condition: { $regex: re }}] , $and: [{ discharged: false }] } , { $sort: { name: -1 }}
 
-Template.listPatients.events
+Template.trackPatients.onRendered ()->
+  analytics.trackLink $("#active-tab"), "click", {name: "active-tab"}
+  analytics.trackLink $("#discharged-tab"), "click", {name: "discharged-tab"}
+  analytics.trackLink $("#back-button"), "click", {name: "back-button"}
+
+Template.trackPatients.events
   "keyup #search": ( e )->
     analytics.track "Used Search", {
       location: "trackPatients"
@@ -21,7 +26,7 @@ Template.listPatients.events
 
   "change input[name=subscribed]": ( e )->
     console.log "Changed the subscribed value"
-    analytics.track "Action", {
+    analytics.track "click", {
       location: "trackPatients",
       text: "subscribed"
     }
@@ -32,7 +37,7 @@ Template.listPatients.events
   "change input[name=took_practical]": ( e )->
     console.log "Practical checked"
     console.log @
-    analytics.track "Action", {
+    analytics.track "click", {
       location: "trackPatients",
       text: "took_practical"
     }
@@ -48,7 +53,7 @@ Template.listPatients.events
   "change input[name=discharged]": ( e )->
     console.log "Discharged checked"
     console.log @
-    analytics.track "Action", {
+    analytics.track "click", {
       location: "trackPatients",
       text: "discharged"
     }
@@ -64,7 +69,7 @@ Template.listPatients.events
   "change input[name=took_first_class]": ( e )->
     console.log "Took First Class checked"
     console.log @
-    analytics.track "Action", {
+    analytics.track "click", {
       location: "trackPatients",
       text: "took_first_class"
     }

@@ -1,4 +1,4 @@
-Template.editPatient.events
+Template.newPatient.events
   "click #save_patient": ()->
     console.log "Clicked submit"
     patientName = $("input[name=patient_name]").val()
@@ -6,12 +6,9 @@ Template.editPatient.events
     phone = $("input[name=phone]").val()
     lang = $("input[name=language]:checked").val()
     subscribe = $("input[name=subscribe]").is ":checked"
-    isTest = Meteor.settings.public.isDevMode
     date = moment().toDate()
 
     patient = {
-      name: patientName
-      attender: attender
       phone: phone
       language: lang
       subscribes_to_ivr: subscribe
@@ -24,7 +21,6 @@ Template.editPatient.events
       date_first_class: null
       date_practical: null
       hospital: "Jayadeva"
-      test: isTest
     }
 
     Meteor.call "insertPatient", patient
@@ -36,4 +32,8 @@ Template.editPatient.events
     }
 
     console.log Patients.findOne { _id: patient}
+    FlowRouter.go "/"
+
+Template.newPatient.onRendered ()->
+  analytics.trackLink $("#back-button"), "click", {name: "back-button"}
 

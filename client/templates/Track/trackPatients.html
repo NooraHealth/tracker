@@ -1,32 +1,32 @@
-<template name="listPatients">
-<div class="content-block">
-  <p><a href="/" class="button large-button color-green button-fill"> <i class="fa fa-arrow-circle-left icon-in-button"></i>Go Back</a></p>
-</div>
+<template name="trackPatients">
+  <div class="content-block">
+    <p><a href="/" class="button large-button color-green button-fill" id="back-button"> <i class="fa fa-arrow-circle-left icon-in-button"></i>Go Back</a></p>
+  </div>
 
-<div class="list-block inset">
-  <ul>
-    <hr/>
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="fa fa-search fa-2x"></i></div>
-        <div class="item-inner">
-          <div class="item-input">
-            <input type="number" id="search" class="col-75" placeholder="Search phone number" >
+  <div class="list-block inset">
+    <ul>
+      <hr/>
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="fa fa-search fa-2x"></i></div>
+          <div class="item-inner">
+            <div class="item-input">
+              <input type="number" id="search" class="col-75" placeholder="Search phone number" >
+            </div>
           </div>
         </div>
-      </div>
-    </li>
-    <hr/>
-  </ul>
-</div>
+      </li>
+      <hr/>
+    </ul>
+  </div>
 
-<div class="content-block">
-    <!-- Buttons row as tabs controller -->
+  <div class="content-block">
+      <!-- Buttons row as tabs controller -->
     <div class="buttons-row">
       <!-- Link to 1st tab, active -->
-      <a href="#active" class="tab-link active button button-bordered">Active</a>
+      <a href="#active" id="active-tab" class="tab-link active button button-bordered">Active</a>
       <!-- Link to 2nd tab -->
-      <a href="#discharged" class="tab-link button button-bordered">Discharged</a>
+      <a href="#discharged" id="discharged-tab" class="tab-link button button-bordered">Discharged</a>
     </div>
   </div>
   <!-- Tabs, tabs wrapper -->

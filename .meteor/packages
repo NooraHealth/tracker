@@ -18,7 +18,6 @@ ecmascript              # Enable ECMAScript2015+ syntax in app code
 
 autopublish             # Publish all data to the clients (for prototyping)
 insecure                # Allow all DB writes from clients (for prototyping)
-iron:router
 coffeescript
 aldeed:simple-schema
 wolves:bourbon@=3.0.0
@@ -29,3 +28,6 @@ fortawesome:fontawesome
 momentjs:moment
 tuul:salesforce
 percolatestudio:segment.io
+arillo:flow-router-helpers
+kadira:flow-router
+kadira:blaze-layout

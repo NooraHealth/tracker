@@ -1,4 +1,7 @@
 Meteor.methods
+  "getSegmentId": ()->
+    return Meteor.settings.SEGMENT_ID
+
   "sendToSalesforce" : ( id )->
 
     callback = Meteor.bindEnvironment ( err, ret ) ->
@@ -8,8 +11,8 @@ Meteor.methods
         console.log "Success inserting into salesforce"
         console.log ret
         console.log "setting the salesforce_id"
-        doc = Patients.update { _id: id } , { $set: { salesforce_id: ret.id } }
-        console.log Patients.findOne { _id: doc }
+        Patients.update { _id: id } , { $set: { salesforce_id: ret.id } }
+        console.log Patients.findOne { _id: id }
 
     patient = Patients.findOne { _id : id }
     #insert into the Salesforce database
