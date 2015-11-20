@@ -1,12 +1,14 @@
 Template.newPatient.events
   "click #save_patient": ()->
-    console.log "Clicked submit"
-    patientName = $("input[name=patient_name]").val()
-    attender = $("input[name=attender_name]").val()
     phone = $("input[name=phone]").val()
     lang = $("input[name=language]:checked").val()
     subscribe = $("input[name=subscribe]").is ":checked"
     date = moment().toDate()
+    hospital = getHospital()
+
+    if phone.length != 10
+      swal("Error", "Patient phone must be 10 digits", "error")
+      return
 
     patient = {
       phone: phone
@@ -20,7 +22,7 @@ Template.newPatient.events
       date_discharged: null
       date_first_class: null
       date_practical: null
-      hospital: "Jayadeva"
+      hospital: hospital
     }
 
     Meteor.call "insertPatient", patient
@@ -31,7 +33,6 @@ Template.newPatient.events
       color: "blue"
     }
 
-    console.log Patients.findOne { _id: patient}
     FlowRouter.go "/"
 
 Template.newPatient.onRendered ()->

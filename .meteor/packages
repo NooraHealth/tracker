@@ -31,3 +31,5 @@ percolatestudio:segment.io
 arillo:flow-router-helpers
 kadira:flow-router
 kadira:blaze-layout
+u2622:persistent-session
+kevohagan:sweetalert
