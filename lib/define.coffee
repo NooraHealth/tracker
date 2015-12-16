@@ -1,2 +1,5 @@
-this.Patients = new Mongo.Collection "patients"
-console.log Patients
+this.Patients = new Mongo.Collection Meteor.settings.public.patients_collection
+console.log "Salesforce"
+console.log Salesforce
+
+Ground.Collection this.Patients
