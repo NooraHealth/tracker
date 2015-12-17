@@ -47,7 +47,7 @@ Template.trackPatients.events
       date = moment().toDate()
     else
       date = null
-    Patients.update { _id: @._id }, { $set: { date_took_practical: date}}
+    Patients.update { _id: @._id }, { $set: { date_practical: date}}
     Meteor.call "updatePatient", { Id: @.salesforce_id, "Date_took_practical__c" : date }
 
   "change input[name=discharged]": ( e )->
@@ -89,7 +89,7 @@ Template.patientInfo.helpers
     if query == "discharged"
       return patient["date_discharged"] != null
     if query == "took_practical"
-      return patient["date_took_practical"] != null
+      return patient["date_practical"] != null
     if query == "took_first_class"
       return patient["date_first_class"] != null
     else
