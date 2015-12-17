@@ -20,9 +20,6 @@ Meteor.methods
     .create {
       "Name" : patient.phone,
       "Language__c" : patient.language,
-      "Discharged__c" : patient.discharged,
-      "Took_Class__c" : patient.took_first_class,
-      "took_practical__c" : patient.took_practical,
       "Subscribed_to_IVR__c": patient.subscribes_to_ivr,
       "Hospital__c" : patient.hospital,
       "Date_first_class__c": patient.date_first_class,

@@ -3,12 +3,12 @@ Template.trackPatients.helpers
     search = Session.get "search_query"
     re = new RegExp search
     #return Patients.find {$or: [{ name: { $regex: re }, phone: { $regex: re }, condition: { $regex: re} }]  }
-    return Patients.find {$or: [ {name: { $regex: re } }, {phone: {$regex: re}}, {condition: { $regex: re }}] , $and: [{ discharged: true }] } , { $sort: { name: -1 }}
+    return Patients.find { $or:[ {phone: {$regex: re}}], $and: [{ date_discharged: {$not: null} } ] } , { $sort: { name: -1 }}
 
   patients: ()->
     search = Session.get "search_query"
     re = new RegExp search
-    return Patients.find {$or: [ {name: { $regex: re } }, {phone: {$regex: re}}, {condition: { $regex: re }}] , $and: [{ discharged: false }] } , { $sort: { name: -1 }}
+    return Patients.find {$or: [ {name: { $regex: re } }, {phone: {$regex: re}}, {condition: { $regex: re }}] , $and: [{ date_discharged: null }] } , { $sort: { name: -1 }}
 
 Template.trackPatients.onRendered ()->
   analytics.trackLink $("#active-tab"), "click", {name: "active-tab"}
@@ -47,8 +47,8 @@ Template.trackPatients.events
       date = moment().toDate()
     else
       date = null
-    Patients.update { _id: @._id }, { $set: { took_practical: tookPractical , date_took_practical: date}}
-    Meteor.call "updatePatient", { Id: @.salesforce_id, "took_practical__c": tookPractical, "Date_took_practical__c" : date }
+    Patients.update { _id: @._id }, { $set: { date_took_practical: date}}
+    Meteor.call "updatePatient", { Id: @.salesforce_id, "Date_took_practical__c" : date }
 
   "change input[name=discharged]": ( e )->
     console.log "Discharged checked"
@@ -63,8 +63,8 @@ Template.trackPatients.events
       date = moment().toDate()
     else
       date = null
-    Patients.update { _id: @._id }, { $set: { discharged: discharged , date_discharged: date }}
-    Meteor.call "updatePatient", { Id: @.salesforce_id, "Discharged__c": discharged, "Date_discharged__c" : date }
+    Patients.update { _id: @._id }, { $set: { date_discharged: date }}
+    Meteor.call "updatePatient", { Id: @.salesforce_id, "Date_discharged__c" : date }
 
   "change input[name=took_first_class]": ( e )->
     console.log "Took First Class checked"
@@ -78,11 +78,19 @@ Template.trackPatients.events
       date = moment().toDate()
     else
       date = null
-    Patients.update { _id: @._id }, { $set: { took_first_class: tookClass, date_first_class: date } }
-    Meteor.call "updatePatient", { Id: @.salesforce_id, "Took_Class__c": tookClass, "Date_first_class__c" : date }
+    Patients.update { _id: @._id }, { $set: { date_first_class: date } }
+    Meteor.call "updatePatient", { Id: @.salesforce_id, "Date_first_class__c" : date }
 
 Template.patientInfo.helpers
   isTrue: ( query )->
     patient = Template.currentData()
-    return patient[query] == true
-
+    if query == "subscribes_to_ivr"
+      return patient["subscribes_to_ivr"] == true
+    if query == "discharged"
+      return patient["date_discharged"] != null
+    if query == "took_practical"
+      return patient["date_took_practical"] != null
+    if query == "took_first_class"
+      return patient["date_first_class"] != null
+    else
+      return false

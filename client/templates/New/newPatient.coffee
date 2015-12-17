@@ -19,9 +19,6 @@ Template.newPatient.events
       language: lang
       subscribes_to_ivr: subscribe
       has_been_input_to_ivr_system: false
-      took_first_class: false
-      took_practical: false
-      discharged: false
       date_added: date
       date_discharged: null
       date_first_class: null
