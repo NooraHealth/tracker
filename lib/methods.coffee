@@ -1,6 +1,9 @@
 Meteor.methods
-  "insertPatient" : ( patient )->
+  "insertPatient": ( patient )->
     id = Patients.insert patient
     Meteor.call "sendToSalesforce", id
+
+  'getToday': ()->
+    return moment().toDate()
 
   
