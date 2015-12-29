@@ -1,3 +1,9 @@
+this.NewPatientPage = React.createClass
+  initialState: ()->
+  
+  render: ()->
+    <Header />
+    
 Template.newPatient.events
   "click #save_patient": ()->
     phone = $("input[name=phone]").val()
