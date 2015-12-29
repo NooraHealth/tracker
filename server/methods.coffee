@@ -7,6 +7,7 @@ Meteor.methods
     callback = Meteor.bindEnvironment ( err, ret ) ->
       if err
         console.log "Error inserting patient into Salesforce"
+        console.log err
       else
         console.log "Success inserting into salesforce"
         console.log ret
