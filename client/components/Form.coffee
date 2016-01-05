@@ -5,7 +5,7 @@ this.Form = React.createClass
   render: ()->
     <div class="list-block inset">
       <ul>
-        {this.state.formFields.map
+        {@.state.formFields.map
         <hr/>
         <li></li>
       </ul>
@@ -13,14 +13,23 @@ this.Form = React.createClass
     </div>
   
 Form.NumberInput = React.createClass
+  getInitialState: ()->
+    return {
+      value: ""
+    }
+
+  handleChange: ( event )->
+    @.setState { value: event.target.value }
+
   render: ()->
-    { title, ...inputProps } = this.props
+    { title, ...inputProps } = @.props
+    value = @.state.value
     return (
       <div className="item-content">
         <div className="item-media"><i className={ icon }></i></div>
         <div className="item-inner">
           <div className="item-input">
-            <input { ...inputProps } type="number" />
+            <input { ...inputProps } value={ value } onChange={ @handleChange } type="number"/>
           </div>
         </div>
       </div>
@@ -28,7 +37,7 @@ Form.NumberInput = React.createClass
 
 Form.Radio = React.createClass
   render: ()->
-    { title, ...inputProps } = this.props
+    { title, ...inputProps } = @.props
     return (
       <label className="label-radio item-content">
         <input { ...inputProps } type="radio"  />
@@ -44,7 +53,7 @@ Form.Radio = React.createClass
 
 Form.Checkbox = React.createClass
   render: ()->
-    { title, ...inputProps } = this.props
+    { title, ...inputProps } = @.props
     return (
       <label className="label-checkbox item-content">
         <input { ...inputProps } type="checkbox" />
