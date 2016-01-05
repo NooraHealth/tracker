@@ -20,7 +20,7 @@ Form.NumberInput = React.createClass
         <div className="item-media"><i className={ icon }></i></div>
         <div className="item-inner">
           <div className="item-input">
-            <input type="number" { ...inputProps }/>
+            <input { ...inputProps } type="number" />
           </div>
         </div>
       </div>
@@ -31,7 +31,7 @@ Form.Radio = React.createClass
     { title, ...inputProps } = this.props
     return (
       <label className="label-radio item-content">
-        <input type="radio" { ...inputProps } />
+        <input { ...inputProps } type="radio"  />
         <div className="item-media">
           <i className="icon icon-form-radio"></i>
         </div>
@@ -47,7 +47,7 @@ Form.Checkbox = React.createClass
     { title, ...inputProps } = this.props
     return (
       <label className="label-checkbox item-content">
-        <input type="checkbox" { ...inputProps }/>
+        <input { ...inputProps } type="checkbox" />
         <div className="item-media">
           <i className="icon icon-form-checkbox"></i>
         </div>
