@@ -2,11 +2,11 @@
 ###
 # Home
 ###
-FlowRouter.route '/', {
+FlowRouter.route( '/', function(){
   action: ()->
     BlazeLayout.render "home"
     analytics.page("home")
-}
+});
 
 ###
 # Add a new patient
