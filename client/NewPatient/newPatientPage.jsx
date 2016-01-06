@@ -1,5 +1,10 @@
 
-this.NewPatientPage = class NewPatientPage extends React.Component {
+class NewPatientPage extends React.Component {
+  constructor( props ){
+    super(props);
+    this.language = {};
+  }
+    
   render() {
     return (
       <div>
@@ -14,3 +19,5 @@ this.NewPatientPage = class NewPatientPage extends React.Component {
     )
   }
 }
+
+this.NewPatientPage = NewPatientPage
