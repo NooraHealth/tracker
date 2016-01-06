@@ -1,6 +1,10 @@
-this.Form = React.createClass({
+ class FormComponent extends React.Component {
 
-  render: function(){
+  constructor( props ){
+    super(props);
+  }
+
+  render(){
     onSubmit = this.props.onSubmit;
     return (
       <div className="list-block inset">
@@ -13,20 +17,23 @@ this.Form = React.createClass({
       </div>
     )
   }
-});
+}
   
-Form.Input = React.createClass({
-  getInitialState: function(){
-    return {
+class Input extends React.Component {
+
+  constructor( props ){
+    super(props);
+    this.state = {
       value: ""
-    };
-  },
+    }
+    this.handleChange = this.handleChange.bind(this);
+  }
 
-  handleChange: function( event ){
+  handleChange( event ){
     return this.setState({ value: event.target.value });
-  },
+  }
 
-  render: function(){
+  render(){
     var { title, icon, ...inputProps } = this.props;
     console.log(icon);
     var value = this.state.value;
@@ -41,21 +48,28 @@ Form.Input = React.createClass({
       </div>
     );
   }
-});
+}
 
-Form.Radio = React.createClass({
-  getInitialState: function(){
-    return {
+class Radio extends React.Component {
+
+  constructor( props ){
+    super(props);
+    this.state = {
       selected: this.props.selected
-    };
-  },
+    }
+    this.handleChange = this.handleChange.bind(this);
+  }
 
-  handleChange: function( event ){
-    this.setState({ selected: event.target.value });
-  },
+  handleChange( event ){
+    console.log("Radio button change!@");
+    console.log("This 1 satet", this.state.selected);
+    this.setState({ selected: !this.state.selected });
+    console.log("This satet", this.state.selected);
+  }
 
-  render: function(){
+  render(){
     var { title, selected, ...rest } = this.props;
+    console.log("Rendering");
     return (
       <label className="label-radio item-content">
         <input { ...rest } onChange={ this.handleChange } type="radio" selected={ this.state.selected } />
@@ -68,21 +82,23 @@ Form.Radio = React.createClass({
       </label>
     );
   }
-});
+}
 
 
-Form.Checkbox = React.createClass({
-  getInitialState: function(){
-    return {
+class Checkbox extends React.Component {
+  constructor( props ){
+    super(props);
+    this.state = {
       checked: false
     }
-  },
+    this.handleChange = this.handleChange.bind(this);
+  }
 
-  handleChange: function( event ){
+  handleChange( event ){
     this.setState({ checked: event.target.value });
-  },
+  }
 
-  render: function(){
+  render(){
     var { title, ...inputProps } = this.props;
     var checked = this.state.checked;
     return (
@@ -97,5 +113,11 @@ Form.Checkbox = React.createClass({
       </label>
     );
   }
-});
+};
     
+this.Form = FormComponent;
+this.Form.Input = Input;
+this.Form.Radio = Radio;
+this.Form.Checkbox = Checkbox;
+
+
