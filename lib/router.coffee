@@ -22,7 +22,8 @@ FlowRouter.route '/trackPatients', {
 ###
 FlowRouter.route '/newPatient', {
   action: ()->
-    BlazeLayout.render "newPatient"
-    analytics.page("newPatient")
+    React.render <NewPatientPage/>, $("body")
+    #BlazeLayout.render "newPatient"
+    #analytics.page("newPatient")
 }
 
