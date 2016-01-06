@@ -1,7 +1,7 @@
 this.Form = React.createClass({
 
   render: function(){
-    fields = this.props.field;
+    onSubmit = this.props.onSubmit;
     return (
       <div className="list-block inset">
         <ul>
@@ -9,7 +9,7 @@ this.Form = React.createClass({
             React.Children.map( this.props.children, ( child )=> <div><hr/><li> {child} </li></div>)
           }
         </ul>
-        <p><a className="button button-round button-fill button-big">Save Patient</a></p>
+        <p><a className="button button-round button-fill button-big" onClick={ onSubmit }>Save Patient</a></p>
       </div>
     )
   }

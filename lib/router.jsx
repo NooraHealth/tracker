@@ -1,14 +1,14 @@
 
 FlowRouter.route('/', {
   action: function(){
-    BlazeLayout.render("home");
+    //BlazeLayout.render("home");
     analytics.page("home");
   }
 });
 
 FlowRouter.route('/trackPatients', {
   action: function(){
-    BlazeLayout.render("trackPatients");
+    //BlazeLayout.render("trackPatients");
     analytics.page("trackPatients");
   }
 });
