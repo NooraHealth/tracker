@@ -3,16 +3,19 @@
 ###
 this.Form = React.createClass
   render: ()->
-    <div class="list-block inset">
-      <ul>
-        {@.state.formFields.map
-        <hr/>
-        <li></li>
-      </ul>
-      <p><a class="button button-round button-fill button-big">Save Patient</a></p>
-    </div>
+    fields = this.props.field
+    return (
+      <div class="list-block inset">
+        <ul>
+          {
+            React.Children.map( this.props.children, ( child )-> return <hr/><li> {child} </li>)
+          }
+        </ul>
+        <p><a class="button button-round button-fill button-big">Save Patient</a></p>
+      </div>
+    )
   
-Form.NumberInput = React.createClass
+Form.Input = React.createClass
   getInitialState: ()->
     return {
       value: ""
@@ -29,18 +32,26 @@ Form.NumberInput = React.createClass
         <div className="item-media"><i className={ icon }></i></div>
         <div className="item-inner">
           <div className="item-input">
-            <input { ...inputProps } value={ value } onChange={ @handleChange } type="number"/>
+            <input { ...inputProps } value={ value } onChange={ @handleChange } />
           </div>
         </div>
       </div>
     )
 
 Form.Radio = React.createClass
+  getInitialState: ()->
+    return {
+      selected: @.props.selected
+    }
+
+  handleChange: ( event )->
+    @.setState { selected: event.target.value }
+
   render: ()->
-    { title, ...inputProps } = @.props
+    { title, selected, ...rest } = @.props
     return (
       <label className="label-radio item-content">
-        <input { ...inputProps } type="radio"  />
+        <input { ...rest } onChange={ @handleChange } type="radio" selected={ @.state.selected } />
         <div className="item-media">
           <i className="icon icon-form-radio"></i>
         </div>
@@ -52,11 +63,20 @@ Form.Radio = React.createClass
 
 
 Form.Checkbox = React.createClass
+  getInitialState: ()->
+    return {
+      checked: false
+    }
+
+  handleChange: ( event )->
+    @.setState { checked: event.target.value }
+
   render: ()->
     { title, ...inputProps } = @.props
+    checked = @.state.checked
     return (
       <label className="label-checkbox item-content">
-        <input { ...inputProps } type="checkbox" />
+        <input { ...inputProps } onChange={ @handleChange } type="checkbox" checked={ checked }/>
         <div className="item-media">
           <i className="icon icon-form-checkbox"></i>
         </div>

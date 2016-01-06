@@ -3,6 +3,10 @@ this.NewPatientPage = React.createClass
   
   render: ()->
     <Header />
+    <Form>
+      <Form.Input type='number' icon='icon-form-tel' name='phone' ref={ (i)=> @.phoneInput = i} />
+      <Form.Radio title='Kannada' selected=true/>
+    </Form>
     
 Template.newPatient.events
   "click #save_patient": ()->
