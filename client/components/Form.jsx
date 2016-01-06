@@ -27,7 +27,8 @@ Form.Input = React.createClass({
   },
 
   render: function(){
-    var { title, ...inputProps } = this.props;
+    var { title, icon, ...inputProps } = this.props;
+    console.log(icon);
     var value = this.state.value;
     return (
       <div className="item-content">

@@ -15,7 +15,10 @@ FlowRouter.route('/trackPatients', {
 
 FlowRouter.route('/newPatient', {
   action: function(){
-    React.render(<NewPatientPage/>, $("body"));
+    ReactLayout.render( MainLayout, {
+      content: <NewPatientPage/>,
+      header: <BackButton/>
+    });
     //BlazeLayout.render "newPatient"
     //analytics.page("newPatient")
   }

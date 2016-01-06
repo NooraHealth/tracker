@@ -49,8 +49,8 @@ insecure@1.0.4
 interwebs:framework7@1.0.3
 jquery@1.11.4
 jsx@0.2.3
-kadira:blaze-layout@2.2.0
 kadira:flow-router@2.9.0
+kadira:react-layout@1.4.1
 kevohagan:sweetalert@1.0.0
 launch-screen@1.0.4
 livedata@1.0.15
