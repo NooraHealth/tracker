@@ -50,26 +50,65 @@ class Input extends React.Component {
   }
 }
 
+class RadioGroup extends React.Component {
+
+  constructor( props ){
+    super(props);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange( childIndex , event ){
+    console.log( "i", childIndex );
+    React.Children.forEach( this.props.children, function( child, i ) {
+      console.log("Child");
+      console.log(child);
+      if( childIndex != i ) {
+        child.setProps({checked: false});
+      }
+    });
+  }
+
+  render(){
+    children = React.Children.map( this.props.children, function( child, i ){
+      return React.addons.cloneWithProps(child, {
+        ref: 'radio-'+i
+      });
+    });
+    return (
+      <div onChange={ this.handleChange }>
+        {
+          React.Children.map
+        }
+      </div>
+  
+    )
+  }
+}
+
 class Radio extends React.Component {
 
   constructor( props ){
     super(props);
     this.state = {
-      checked: this.props.selected
+      checked: this.props.checked
     }
     this.handleChange = this.handleChange.bind(this);
   }
 
+  isSelected(){
+    return this.state.checked;
+  }
+
   handleChange( event ){
-    this.setState({ checked: event.target.value });
+    this.setState({ checked: !this.state.checked });
   }
 
   render(){
-    var { title, checked, ...rest } = this.props;
-    console.log("Rendering");
+    var { title, name, ...rest } = this.props;
+    var checked = this.state.checked;
     return (
       <label className="label-radio item-content">
-        <input { ...rest } onChange={ this.handleChange } type="radio" checked={ this.state.checked } />
+        <input { ...rest } onChange={ this.handleChange } type="radio" checked={ checked } />
         <div className="item-media">
           <i className="icon icon-form-radio"></i>
         </div>
@@ -91,13 +130,16 @@ class Checkbox extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
+  isChecked(){
+    return this.state.checked;
+  }
+
   handleChange( event ){
     this.setState({ checked: !this.state.checked });
   }
 
   render(){
     var { title, ...inputProps } = this.props;
-    console.log("Is checked?:", this.state.checked);
     var checked = this.state.checked;
     return (
       <label className="label-checkbox item-content">
@@ -115,6 +157,7 @@ class Checkbox extends React.Component {
     
 this.Form = FormComponent;
 this.Form.Input = Input;
+this.Form.RadioGroup = RadioGroup
 this.Form.Radio = Radio;
 this.Form.Checkbox = Checkbox;
 
