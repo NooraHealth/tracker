@@ -55,24 +55,21 @@ class Radio extends React.Component {
   constructor( props ){
     super(props);
     this.state = {
-      selected: this.props.selected
+      checked: this.props.selected
     }
     this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange( event ){
-    console.log("Radio button change!@");
-    console.log("This 1 satet", this.state.selected);
-    this.setState({ selected: !this.state.selected });
-    console.log("This satet", this.state.selected);
+    this.setState({ checked: event.target.value });
   }
 
   render(){
-    var { title, selected, ...rest } = this.props;
+    var { title, checked, ...rest } = this.props;
     console.log("Rendering");
     return (
       <label className="label-radio item-content">
-        <input { ...rest } onChange={ this.handleChange } type="radio" selected={ this.state.selected } />
+        <input { ...rest } onChange={ this.handleChange } type="radio" checked={ this.state.checked } />
         <div className="item-media">
           <i className="icon icon-form-radio"></i>
         </div>
@@ -95,11 +92,12 @@ class Checkbox extends React.Component {
   }
 
   handleChange( event ){
-    this.setState({ checked: event.target.value });
+    this.setState({ checked: !this.state.checked });
   }
 
   render(){
     var { title, ...inputProps } = this.props;
+    console.log("Is checked?:", this.state.checked);
     var checked = this.state.checked;
     return (
       <label className="label-checkbox item-content">
