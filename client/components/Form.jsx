@@ -57,28 +57,28 @@ class RadioGroup extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange( childIndex , event ){
-    console.log( "i", childIndex );
-    React.Children.forEach( this.props.children, function( child, i ) {
-      console.log("Child");
-      console.log(child);
-      if( childIndex != i ) {
-        child.setProps({checked: false});
-      }
-    });
+  handleChange( i , event ){
+    console.log( "i", i );
+    console.log(this.refs);
+    console.log(this.refs['radio-'+ i]);
+    //React.Children.forEach( this.props.children, function( child, i ) {
+      //console.log("Child");
+      //console.log(child);
+      //if( childIndex != i ) {
+        //child.setProps({checked: false});
+      //}
+    //});
   }
 
   render(){
-    children = React.Children.map( this.props.children, function( child, i ){
+    clonesWithRefs = React.Children.map( this.props.children, function( child, i ){
       return React.addons.cloneWithProps(child, {
         ref: 'radio-'+i
       });
     });
     return (
       <div onChange={ this.handleChange }>
-        {
-          React.Children.map
-        }
+        { childrenWithRefs.map( (child, i )=> return  }
       </div>
   
     )
