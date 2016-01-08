@@ -54,7 +54,6 @@ class RadioGroup extends React.Component {
 
   constructor( props ){
     super(props);
-    this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange( i , event ){
@@ -71,9 +70,12 @@ class RadioGroup extends React.Component {
   }
 
   render(){
+    that = this
     clonesWithRefs = React.Children.map( this.props.children, function( child, i ){
-      return React.addons.cloneWithProps(child, {
-        ref: 'radio-'+i
+      console.log(that.handleChange);
+      return React.addons.cloneWithProps( child, {
+        ref: 'radio-'+i,
+        onChange: that.handleChange.bind(that, i)
       });
     });
     console.log(clonesWithRefs);
@@ -100,16 +102,12 @@ class Radio extends React.Component {
     return this.state.checked;
   }
 
-  handleChange( event ){
-    this.setState({ checked: !this.state.checked });
-  }
-
   render(){
     var { title, name, ...rest } = this.props;
     var checked = this.state.checked;
     return (
       <label className="label-radio item-content">
-        <input { ...rest } onChange={ this.handleChange } type="radio" checked={ checked } />
+        <input { ...rest } type="radio" checked={ checked } />
         <div className="item-media">
           <i className="icon icon-form-radio"></i>
         </div>
@@ -159,7 +157,7 @@ class Checkbox extends React.Component {
 this.Form = FormComponent;
 this.Form.Input = Input;
 this.Form.RadioGroup = RadioGroup
-this.Form.Radio = Radio;
+this.Form.RadioGroup.Radio = Radio
 this.Form.Checkbox = Checkbox;
 
 

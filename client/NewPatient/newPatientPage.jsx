@@ -16,9 +16,9 @@ class NewPatientPage extends React.Component {
         <Form onSubmit={ this.onSubmit } >
           <Form.Input type='number' icon='icon icon-form-tel' name='phone' ref={ (i)=> this.phoneInput = i} />
           <Form.RadioGroup ref={ (i)=> this.languageSelect = i } >
-            <Form.Radio title='Kannada' name='language' checked={true}  />
-            <Form.Radio title='Hindi' name='language' checked={false} />
-            <Form.Radio title='English' name='language' checked={false} />
+            <Form.RadioGroup.Radio title='Kannada' name='language' checked={true}  />
+            <Form.RadioGroup.Radio title='Hindi' name='language' checked={false} />
+            <Form.RadioGroup.Radio title='English' name='language' checked={false} />
           </Form.RadioGroup>
           <Form.Checkbox title='Subscribe to Phone Messages' ref={ (i)=> this.subscribeCheckbox = i }/>
         </Form>
