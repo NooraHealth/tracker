@@ -76,9 +76,10 @@ class RadioGroup extends React.Component {
         ref: 'radio-'+i
       });
     });
+    console.log(clonesWithRefs);
     return (
-      <div onChange={ this.handleChange }>
-        { childrenWithRefs.map( (child, i )=> return  }
+      <div>
+        { clonesWithRefs }
       </div>
   
     )
