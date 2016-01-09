@@ -3,25 +3,36 @@ class RadioGroup extends BaseComponent {
 
   constructor( props ){
     super(props);
+    this.state = {
+      value: this.props.value
+    }
   }
 
   handleChange( i , event ){
     that = this
-    React.Children.map( this.props.children, function( child, index ){
-      radio = that.refs['radio-' + index];
-      if( index == i ) {
-        radio.setState({checked: true});
-      } else {
-        radio.setState({checked: false});
-      }
-    });
+    this.setState({ value: that.refs['radio-'+i].props.value});
+    //React.Children.map( this.props.children, function( child, index ){
+      //radio = that.refs['radio-' + index];
+      //if( index == i ) {
+        //radio.setState({checked: true});
+      //} else {
+        //radio.setState({checked: false});
+      //}
+    //});
   }
 
   render(){
     that = this
+    console.log("Rerenderign", this.state);
     clonesWithRefs = React.Children.map( this.props.children, function( child, i ){
+      var checked = false;
+      console.log('child', child.props);
+      if(child.props.value == that.state.value){
+        checked = true;
+      } 
       return React.addons.cloneWithProps( child, {
         ref: 'radio-'+i,
+        checked: checked,
         onChange: that.handleChange.bind(that, i)
       });
     });
@@ -36,6 +47,7 @@ class RadioGroup extends BaseComponent {
 }
 
 RadioGroup.propTypes = {
+  value: React.PropTypes.string.isRequired,
   children: React.PropTypes.oneOfType([
     React.PropTypes.instanceOf(Radio),
     React.PropTypes.arrayOf(React.PropTypes.instanceOf(Radio))
