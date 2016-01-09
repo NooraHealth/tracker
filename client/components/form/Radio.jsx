@@ -58,19 +58,13 @@ class Radio extends BaseComponent {
 
   constructor( props ){
     super(props);
-    this.state = {
-      checked: this.props.checked
-    }
-  }
-
-  isSelected(){
-    return this.state.checked;
   }
 
   render(){
     var title = this.props.title;
-    var checked = this.state.checked;
+    var checked = this.props.checked;
     var onChange = this.props.onChange;
+    console.log("I am a radio btn rendering!", this.props);
     return (
       <label className="label-radio item-content">
         <input type="radio" onChange={ onChange } checked={ checked } />
