@@ -24,6 +24,7 @@ class RadioGroup extends BaseComponent {
       } 
 
       return < Form.RadioGroup.Radio
+        key={ ref }
         option={ option }
         ref={ ref }
         checked= { checked }
