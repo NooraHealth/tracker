@@ -9,6 +9,16 @@ class RadioGroup extends React.Component {
     console.log( "i", i );
     console.log(this.refs);
     console.log(this.refs['radio-'+ i]);
+    that = this
+    React.Children.map( this.props.children, function( child, index ){
+      radio = that.refs['radio-' + index];
+      if( index == i ) {
+        radio.setState({checked: true});
+      } else {
+        radio.setState({checked: false});
+      }
+    });
+    //
     //React.Children.forEach( this.props.children, function( child, i ) {
       //console.log("Child");
       //console.log(child);
@@ -37,6 +47,13 @@ class RadioGroup extends React.Component {
   }
 }
 
+RadioGroup.propTypes = {
+  children: React.PropTypes.oneOfType([
+    React.PropTypes.instanceOf(Radio),
+    React.PropTypes.arrayOf(React.PropTypes.instanceOf(Radio))
+  ])
+}
+
 class Radio extends React.Component {
 
   constructor( props ){
@@ -44,7 +61,6 @@ class Radio extends React.Component {
     this.state = {
       checked: this.props.checked
     }
-    this.handleChange = this.handleChange.bind(this);
   }
 
   isSelected(){
@@ -52,11 +68,12 @@ class Radio extends React.Component {
   }
 
   render(){
-    var { title, name, ...rest } = this.props;
+    var title = this.props.title;
     var checked = this.state.checked;
+    var onChange = this.props.onChange;
     return (
       <label className="label-radio item-content">
-        <input { ...rest } type="radio" checked={ checked } />
+        <input type="radio" onChange={ onChange } checked={ checked } />
         <div className="item-media">
           <i className="icon icon-form-radio"></i>
         </div>
@@ -67,6 +84,12 @@ class Radio extends React.Component {
     );
   }
 }
+
+Radio.propTypes = {
+  title: React.PropTypes.string.isRequired,
+  checked: React.PropTypes.bool.isRequired,
+  onChange: React.PropTypes.func.isRequired
+};
 
 this.Form.RadioGroup = RadioGroup
 this.Form.RadioGroup.Radio = Radio
