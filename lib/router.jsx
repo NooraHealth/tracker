@@ -1,10 +1,6 @@
 
 FlowRouter.route('/', {
   action: function(){
-    ReactLayout.render( MainLayout, {
-      content: <NewPatientPage/>,
-      header: <BackButton/>
-    });
     analytics.page("home");
   }
 });
@@ -20,6 +16,10 @@ FlowRouter.route('/newPatient', {
   action: function(){
     //BlazeLayout.render "newPatient"
     //analytics.page("newPatient")
+    ReactLayout.render( MainLayout, {
+      content: <NewPatientPage/>,
+      header: <BackButton/>
+    });
   }
 });
 
