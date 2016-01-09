@@ -9,7 +9,7 @@ class Input extends BaseComponent {
   }
 
   handleChange( event ){
-    return this.setState({ value: event.target.value });
+    return this.setState({ value: event.target.value.substr(0, 10) });
   }
 
   render(){

@@ -10,36 +10,30 @@ class RadioGroup extends BaseComponent {
 
   handleChange( i , event ){
     that = this
-    this.setState({ value: that.refs['radio-'+i].props.value});
-    //React.Children.map( this.props.children, function( child, index ){
-      //radio = that.refs['radio-' + index];
-      //if( index == i ) {
-        //radio.setState({checked: true});
-      //} else {
-        //radio.setState({checked: false});
-      //}
-    //});
+    console.log(this.refs['radio-'+i]);
+    this.setState({ value: this.refs['radio-'+i].props.option.value});
   }
 
   render(){
     that = this
-    console.log("Rerenderign", this.state);
-    clonesWithRefs = React.Children.map( this.props.children, function( child, i ){
+    options = this.props.options.map( function( option, i ){
       var checked = false;
-      console.log('child', child.props);
-      if(child.props.value == that.state.value){
+      var ref = 'radio-' + i;
+      if(option.value == that.state.value){
         checked = true;
       } 
-      return React.addons.cloneWithProps( child, {
-        ref: 'radio-'+i,
-        checked: checked,
-        onChange: that.handleChange.bind(that, i)
-      });
+
+      return < Form.RadioGroup.Radio
+        option={ option }
+        ref={ ref }
+        checked= { checked }
+        onChange={ that.handleChange.bind(that, i) }
+      />
     });
 
     return (
       <div>
-        { clonesWithRefs }
+        { options }
       </div>
   
     )
@@ -47,6 +41,7 @@ class RadioGroup extends BaseComponent {
 }
 
 RadioGroup.propTypes = {
+  options: React.PropTypes.array,
   value: React.PropTypes.string.isRequired,
   children: React.PropTypes.oneOfType([
     React.PropTypes.instanceOf(Radio),
@@ -61,10 +56,9 @@ class Radio extends BaseComponent {
   }
 
   render(){
-    var title = this.props.title;
+    var title = this.props.option.title;
     var checked = this.props.checked;
     var onChange = this.props.onChange;
-    console.log("I am a radio btn rendering!", this.props);
     return (
       <label className="label-radio item-content">
         <input type="radio" onChange={ onChange } checked={ checked } />
@@ -80,7 +74,7 @@ class Radio extends BaseComponent {
 }
 
 Radio.propTypes = {
-  title: React.PropTypes.string.isRequired,
+  option: React.PropTypes.object.isRequired,
   checked: React.PropTypes.bool.isRequired,
   onChange: React.PropTypes.func
 };
