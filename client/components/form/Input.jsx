@@ -1,11 +1,11 @@
-class Input extends React.Component {
+class Input extends BaseComponent {
 
   constructor( props ){
     super(props);
     this.state = {
       value: ""
     }
-    this.handleChange = this.handleChange.bind(this);
+    this._bind('handleChange');
   }
 
   handleChange( event ){
@@ -14,7 +14,6 @@ class Input extends React.Component {
 
   render(){
     var { title, icon, ...inputProps } = this.props;
-    console.log(icon);
     var value = this.state.value;
     return (
       <div className="item-content">
@@ -27,6 +26,11 @@ class Input extends React.Component {
       </div>
     );
   }
+}
+
+Input.propTypes = {
+  value: React.PropTypes.string,
+  icon: React.PropTypes.string,
 }
 
 this.Form.Input = Input;

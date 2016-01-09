@@ -1,14 +1,11 @@
 
-class RadioGroup extends React.Component {
+class RadioGroup extends BaseComponent {
 
   constructor( props ){
     super(props);
   }
 
   handleChange( i , event ){
-    console.log( "i", i );
-    console.log(this.refs);
-    console.log(this.refs['radio-'+ i]);
     that = this
     React.Children.map( this.props.children, function( child, index ){
       radio = that.refs['radio-' + index];
@@ -18,26 +15,17 @@ class RadioGroup extends React.Component {
         radio.setState({checked: false});
       }
     });
-    //
-    //React.Children.forEach( this.props.children, function( child, i ) {
-      //console.log("Child");
-      //console.log(child);
-      //if( childIndex != i ) {
-        //child.setProps({checked: false});
-      //}
-    //});
   }
 
   render(){
     that = this
     clonesWithRefs = React.Children.map( this.props.children, function( child, i ){
-      console.log(that.handleChange);
       return React.addons.cloneWithProps( child, {
         ref: 'radio-'+i,
         onChange: that.handleChange.bind(that, i)
       });
     });
-    console.log(clonesWithRefs);
+
     return (
       <div>
         { clonesWithRefs }
@@ -54,7 +42,7 @@ RadioGroup.propTypes = {
   ])
 }
 
-class Radio extends React.Component {
+class Radio extends BaseComponent {
 
   constructor( props ){
     super(props);
@@ -88,7 +76,7 @@ class Radio extends React.Component {
 Radio.propTypes = {
   title: React.PropTypes.string.isRequired,
   checked: React.PropTypes.bool.isRequired,
-  onChange: React.PropTypes.func.isRequired
+  onChange: React.PropTypes.func
 };
 
 this.Form.RadioGroup = RadioGroup

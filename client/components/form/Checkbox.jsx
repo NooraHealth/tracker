@@ -1,11 +1,11 @@
 
-class Checkbox extends React.Component {
+class Checkbox extends BaseComponent {
   constructor( props ){
     super(props);
     this.state = {
       checked: false
     }
-    this.handleChange = this.handleChange.bind(this);
+    this._bind('handleChange');
   }
 
   isChecked(){

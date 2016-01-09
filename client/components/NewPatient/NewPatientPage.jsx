@@ -1,8 +1,8 @@
 
-class NewPatientPage extends React.Component {
+class NewPatientPage extends BaseComponent {
   constructor( props ){
     super(props);
-    this.onSubmit = this.onSubmit.bind(this);
+    this._bind('onSubmit');
   }
 
   onSubmit(){
