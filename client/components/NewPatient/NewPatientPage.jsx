@@ -21,13 +21,13 @@ var NewPatientPage = React.createClass({
       phone: '',
       language: 'kannada',
       hospital: 'jayadeva',
-      subscribeToIVR: false
+      subscribeToIVR: "false"
     };
   },
 
-  onSubmit(){
+  _onSubmit(){
     console.log("A new patient was submitted");
-    console.log(this);
+    console.log(this.state);
     var phone = this.state.phone;
     var language = this.state.language;
     var subscribeToIVR = this.state.subscribeToIVR;
@@ -62,10 +62,10 @@ var NewPatientPage = React.createClass({
   },
     
   render() {
-    console.log("Rerendering the new patient form page: ", this.state);
+    console.log("Rerendering: ", this.state);
     return (
       <div>
-        <Form onSubmit={ this.onSubmit } >
+        <Form onSubmit={ this._onSubmit } >
           <Form.Input 
             type='number' 
             icon='icon icon-form-tel'
@@ -81,7 +81,7 @@ var NewPatientPage = React.createClass({
           <Form.Checkbox
             title='Subscribe to Phone Messages'
             ref={ (i)=> this.subscribeCheckbox = i }
-            //valueLink={ this.linkState('subscribeToIVR') }
+            valueLink={ this.linkState('subscribeToIVR') }
           />
         </Form>
       </div>

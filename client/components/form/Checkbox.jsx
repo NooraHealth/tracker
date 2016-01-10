@@ -1,27 +1,27 @@
 
-class Checkbox extends BaseComponent {
-  constructor( props ){
-    super(props);
-    this.state = {
-      checked: false
-    }
-    this._bind('handleChange');
-  }
+var Checkbox = React.createClass({
 
-  isChecked(){
-    return this.state.checked;
-  }
+  propTypes: {
+    title: React.PropTypes.string,
+    valueLink: React.PropTypes.shape({
+      value: React.PropTypes.string,
+      requestChange: React.PropTypes.func
+    })
+  },
 
-  handleChange( event ){
-    this.setState({ checked: !this.state.checked });
-  }
-
+  defaultProps(){
+    return {
+      title: "",
+      valueLink: null
+    } 
+  },
+  
   render(){
-    var { title, ...inputProps } = this.props;
-    var checked = this.state.checked;
+    var { title, valueLink, ...inputProps } = this.props;
+    console.log("valuelink:,", valueLink);
     return (
       <label className="label-checkbox item-content">
-        <input { ...inputProps } onChange={ this.handleChange } type="checkbox" checked={ checked }/>
+        <input { ...inputProps } checkedLink={ valueLink } type="checkbox"/>
         <div className="item-media">
           <i className="icon icon-form-checkbox"></i>
         </div>
@@ -31,6 +31,6 @@ class Checkbox extends BaseComponent {
       </label>
     );
   }
-};
+});
 
 this.Form.Checkbox = Checkbox;

@@ -8,6 +8,14 @@ var Input = React.createClass({
     })
   },
 
+  defaultProps() {
+    return {
+      value: "",
+      icon: "",
+      valueLink: null
+    }
+  },
+
   render(){
     var { title, icon, valueLink, ...inputProps } = this.props;
     return (
