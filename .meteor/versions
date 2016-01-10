@@ -16,7 +16,7 @@ caching-html-compiler@1.0.2
 callback-hook@1.0.4
 check@1.1.0
 coffeescript@1.0.11
-cosmos:browserify@0.5.1
+cosmos:browserify@0.8.3
 ddp@1.2.2
 ddp-client@1.2.1
 ddp-common@1.2.2
@@ -95,6 +95,7 @@ u2622:persistent-session@0.4.4
 ui@1.0.8
 underscore@1.0.4
 url@1.0.5
+victoransel:react-linkedstate-mixin@0.13.2
 webapp@1.2.3
 webapp-hashing@1.0.5
 wolves:bourbon@3.0.0
