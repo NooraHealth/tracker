@@ -1,4 +1,4 @@
-this.BackButton = React.createClass({
+var BackButton = React.createClass({
   render: function(){
     return (
       <div className="content-block">
@@ -9,3 +9,5 @@ this.BackButton = React.createClass({
     )
   }
 });
+
+this.BackButton = BackButton;
