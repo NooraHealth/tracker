@@ -1,4 +1,12 @@
-class Input extends BaseComponent {
+var Input = React.createClass({
+  propTypes: { 
+    value: React.PropTypes.string,
+    icon: React.PropTypes.string,
+    valueLink: React.PropTypes.shape({
+      value: React.PropTypes.string,
+      requestChange: React.PropTypes.func
+    })
+  },
 
   render(){
     var { title, icon, valueLink, ...inputProps } = this.props;
@@ -13,12 +21,9 @@ class Input extends BaseComponent {
       </div>
     );
   }
-}
+});
 
 Input.propTypes = {
-  value: React.PropTypes.string,
-  icon: React.PropTypes.string,
-  valueLink: React.PropTypes.func
 }
 
 this.Form.Input = Input;
