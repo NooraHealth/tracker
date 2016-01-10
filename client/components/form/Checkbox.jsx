@@ -18,7 +18,6 @@ var Checkbox = React.createClass({
   
   render(){
     var { title, valueLink, ...inputProps } = this.props;
-    console.log("valuelink:,", valueLink);
     return (
       <label className="label-checkbox item-content">
         <input { ...inputProps } checkedLink={ valueLink } type="checkbox"/>

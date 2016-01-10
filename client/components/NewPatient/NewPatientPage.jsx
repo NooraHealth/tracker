@@ -26,8 +26,6 @@ var NewPatientPage = React.createClass({
   },
 
   _onSubmit(){
-    console.log("A new patient was submitted");
-    console.log(this.state);
     var phone = this.state.phone;
     var language = this.state.language;
     var subscribeToIVR = this.state.subscribeToIVR;
@@ -62,7 +60,6 @@ var NewPatientPage = React.createClass({
   },
     
   render() {
-    console.log("Rerendering: ", this.state);
     return (
       <div>
         <Form onSubmit={ this._onSubmit } >
