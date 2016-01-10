@@ -1,25 +1,60 @@
 
-class RadioGroup extends BaseComponent {
+var RadioGroup = React.createClass({
+  propTypes: {
+    options: React.PropTypes.array,
+    value: React.PropTypes.string,
+    onChange: React.PropTypes.func,
+    valueLink: React.PropTypes.shape({
+      value: React.PropTypes.string.isRequired,
+      requestChange: React.PropTypes.func.isRequired
+    }),
+    children: React.PropTypes.oneOfType([
+      React.PropTypes.instanceOf(Radio),
+      React.PropTypes.arrayOf(React.PropTypes.instanceOf(Radio))
+    ])
+  },
 
-  constructor( props ){
-    super(props);
-    this.state = {
-      value: this.props.value
+  defaultProps(){
+    return {
+      options: [],
+      value: "",
+      onChange: function() {},
+      valueLink: null
     }
-  }
+  },
+
+  getInitialState(){ return null },
 
   handleChange( i , event ){
-    that = this
-    console.log(this.refs['radio-'+i]);
-    this.setState({ value: this.refs['radio-'+i].props.option.value});
-  }
+    this._getValueLink(this.props).requestChange(this.refs['radio-'+i].props.option.value);
+  },
+
+  _getValueLink( props ) {
+    return props.valueLink || {
+      value: props.value,
+      requestChange: props.onChange
+    }
+  },
+
+  componentWillReceiveProps(nextProps) {
+    var currentValueLink = this._getValueLink(this.props),
+        nextValueLink = this._getValueLink(nextProps);
+    
+    console.log("Will the component reload?", currentValueLink);
+    console.log(nextValueLink);
+    if (currentValueLink.value !== nextValueLink.value) {
+      var node = jQuery(this.getDOMNode());
+      node.val(nextValueLink.value);
+      node.change();
+    }
+  },
 
   render(){
     that = this
     options = this.props.options.map( function( option, i ){
       var checked = false;
       var ref = 'radio-' + i;
-      if(option.value == that.state.value){
+      if(option.value == that._getValueLink(that.props).value){
         checked = true;
       } 
 
@@ -39,15 +74,9 @@ class RadioGroup extends BaseComponent {
   
     )
   }
-}
+});
 
 RadioGroup.propTypes = {
-  options: React.PropTypes.array,
-  value: React.PropTypes.string.isRequired,
-  children: React.PropTypes.oneOfType([
-    React.PropTypes.instanceOf(Radio),
-    React.PropTypes.arrayOf(React.PropTypes.instanceOf(Radio))
-  ])
 }
 
 class Radio extends BaseComponent {

@@ -76,7 +76,7 @@ var NewPatientPage = React.createClass({
           <Form.RadioGroup
             ref={ (i)=> this.languageSelect = i }
             options={ this.props.languageOptions }
-            //linkValue={ this.linkState('language') }
+            valueLink={ this.linkState('language') }
           />
           <Form.Checkbox
             title='Subscribe to Phone Messages'

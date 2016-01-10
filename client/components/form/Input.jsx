@@ -1,10 +1,7 @@
 class Input extends BaseComponent {
 
   render(){
-    console.log(this.props);
     var { title, icon, valueLink, ...inputProps } = this.props;
-    console.log(valueLink);
-    console.log("Reredning input");
     return (
       <div className="item-content">
         <div className="item-media"><i className={ icon }></i></div>
