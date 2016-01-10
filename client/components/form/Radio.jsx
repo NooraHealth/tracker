@@ -76,14 +76,22 @@ var RadioGroup = React.createClass({
   }
 });
 
-RadioGroup.propTypes = {
-}
+var Radio = React.createClass({
+  propTypes: {
+    option: React.PropTypes.shape({
+      title: React.PropTypes.string,
+    }),
+    checked: React.PropTypes.bool.isRequired,
+    onChange: React.PropTypes.func
+  },
 
-class Radio extends BaseComponent {
-
-  constructor( props ){
-    super(props);
-  }
+  defaultProps(){
+    return {
+      option: { title: "" },
+      checked: false,
+      onChange: function() { return null }
+    } 
+  },
 
   render(){
     var title = this.props.option.title;
@@ -101,13 +109,7 @@ class Radio extends BaseComponent {
       </label>
     );
   }
-}
-
-Radio.propTypes = {
-  option: React.PropTypes.object.isRequired,
-  checked: React.PropTypes.bool.isRequired,
-  onChange: React.PropTypes.func
-};
+});
 
 this.Form.RadioGroup = RadioGroup
 this.Form.RadioGroup.Radio = Radio
