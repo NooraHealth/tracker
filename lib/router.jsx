@@ -2,8 +2,8 @@
 FlowRouter.route('/', {
   action: function(){
     ReactLayout.render( MainLayout, {
-      header: <Logo/>,
-      content: <HomePage/>
+      header: <Logo key='logo'/>,
+      content: <HomePage key='homepage'/>
     });
     analytics.page("home");
   }
@@ -21,8 +21,8 @@ FlowRouter.route('/newPatient', {
     //BlazeLayout.render "newPatient"
     //analytics.page("newPatient")
     ReactLayout.render( MainLayout, {
-      header: <BackButton/>,
-      content: <NewPatientPage/>
+      header: <BackButton key='backbutton'/>,
+      content: <NewPatientPage key='newpatientpage'/>
     });
   }
 });

@@ -1,23 +1,33 @@
- class FormComponent extends React.Component {
+var FormComponent = React.createClass({
+  propTypes: {
+    onSubmit: React.PropTypes.func
+  },
 
-  constructor( props ){
-    super(props);
-  }
+  defaultProps(){
+    return {
+      onSubmit: function(){},
+      children: [] 
+    }
+  },
+
+  getInitialState(){ return {} },
 
   render(){
     onSubmit = this.props.onSubmit;
+    children = React.Children.map( this.props.children, function( child ){
+      return <div><hr/><li> {child} </li></div>
+    });
+
     return (
       <div className="list-block inset">
         <ul>
-          {
-            React.Children.map( this.props.children, ( child )=> <div><hr/><li> {child} </li></div>)
-          }
+          { children }
         </ul>
-        <p><a className="button button-round button-fill button-big" onClick={ onSubmit }>Save Patient</a></p>
+        <p><a key='submitbutton' className="button button-round button-fill button-big" onClick={ onSubmit }>Save Patient</a></p>
       </div>
     )
   }
-}
+});
   
 this.Form = FormComponent;
 

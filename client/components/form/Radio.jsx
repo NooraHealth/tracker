@@ -1,5 +1,6 @@
 
 var RadioGroup = React.createClass({
+
   propTypes: {
     options: React.PropTypes.array,
     value: React.PropTypes.string,
@@ -23,7 +24,7 @@ var RadioGroup = React.createClass({
     }
   },
 
-  getInitialState(){ return null },
+  getInitialState(){ return {} },
 
   handleChange( i , event ){
     this._getValueLink(this.props).requestChange(this.refs['radio-'+i].props.option.value);
@@ -94,9 +95,7 @@ var Radio = React.createClass({
   },
 
   render(){
-    var title = this.props.option.title;
-    var checked = this.props.checked;
-    var onChange = this.props.onChange;
+    var { title, checked, onChange } = this.props;
     return (
       <label className="label-radio item-content">
         <input type="radio" onChange={ onChange } checked={ checked } />

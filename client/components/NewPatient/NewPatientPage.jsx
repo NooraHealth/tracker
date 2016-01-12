@@ -68,17 +68,20 @@ var NewPatientPage = React.createClass({
             icon='icon icon-form-tel'
             maxLength={ this.phoneLength } 
             ref={ (i)=> this.phoneInput = i} 
+            key= 'newpatientphone'
             valueLink={ this.linkState('phone') }
           />
           <Form.RadioGroup
             ref={ (i)=> this.languageSelect = i }
             options={ this.props.languageOptions }
             valueLink={ this.linkState('language') }
+            key='newpatientlanguage'
           />
           <Form.Checkbox
             title='Subscribe to Phone Messages'
             ref={ (i)=> this.subscribeCheckbox = i }
             valueLink={ this.linkState('subscribeToIVR') }
+            key='newpatientsubscribe'
           />
         </Form>
       </div>
