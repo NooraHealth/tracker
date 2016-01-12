@@ -12,6 +12,10 @@ FlowRouter.route('/', {
 FlowRouter.route('/trackPatients', {
   action: function(){
     //BlazeLayout.render("trackPatients");
+    ReactLayout.render( MainLayout, {
+      header: <BackButton key='backbutton'/>,
+      content: <TrackPatientsPage key='trackpatientspage'/>
+    });
     analytics.page("trackPatients");
   }
 });
