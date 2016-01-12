@@ -73,6 +73,7 @@ var Radio = React.createClass({
   propTypes: {
     option: React.PropTypes.shape({
       title: React.PropTypes.string,
+      value: React.PropTypes.string
     }),
     checked: React.PropTypes.bool.isRequired,
     onChange: React.PropTypes.func
@@ -80,14 +81,14 @@ var Radio = React.createClass({
 
   defaultProps(){
     return {
-      option: { title: "" },
+      option: { title: "", value: "" },
       checked: false,
       onChange: function() { return null }
     } 
   },
 
   render(){
-    var { title, checked, onChange } = this.props;
+    var { option, checked, onChange } = this.props;
     return (
       <label className="label-radio item-content">
         <input type="radio" onChange={ onChange } checked={ checked } />
@@ -95,7 +96,7 @@ var Radio = React.createClass({
           <i className="icon icon-form-radio"></i>
         </div>
         <div className="item-inner">
-          <div className="item-title">{ title }</div>
+          <div className="item-title">{ option.title }</div>
         </div>
       </label>
     );
