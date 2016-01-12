@@ -22,7 +22,7 @@ var SearchBar = React.createClass({
   getInitialState(){ return {} },
 
   render(){
-    var { type, classes, placeholder } = this.props;
+    var { type, classes, placeholder, valueLink } = this.props;
     return (
       <input 
         type={ type }

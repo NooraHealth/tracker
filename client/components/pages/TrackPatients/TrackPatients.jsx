@@ -66,11 +66,12 @@ var TrackPatientsPage = React.createClass({
   },
 
   _getPatientInfoComponents( patients ){
+    that = this
     components = patients.map( function( patient){
-      subscribedHandler = _setBooleanOnChange( patient._id, "subscribes_to_ivr" );
-      dischargedHandler = _setDateOnChange( patient._id, "date_discharged" );
-      tookClassHandler = _setDateOnChange( patient._id, "date_first_class" );
-      tookPracticalHandler = _setDateOnChange( patient._id, "date_practical" );
+      subscribedHandler = that._setBooleanOnChange( patient._id, "subscribes_to_ivr" );
+      dischargedHandler = that._setDateOnChange( patient._id, "date_discharged" );
+      tookClassHandler = that._setDateOnChange( patient._id, "date_first_class" );
+      tookPracticalHandler = that._setDateOnChange( patient._id, "date_practical" );
 
       return (
         <PatientInfo
@@ -82,16 +83,15 @@ var TrackPatientsPage = React.createClass({
         />
       )
     });
-
     return components;
   },
   render(){
     console.log("Rerending the trackpatients page");
     console.log(this.state);
 
-    var activePatientsInfo = this.data.active.map( function( patient ){
-       
-    });
+    var activePatients = this._getPatientInfoComponents(this.data.active);
+    var dischargedPatients = this._getPatientInfoComponents(this.data.discharged);
+
     return (
       <div>
 
