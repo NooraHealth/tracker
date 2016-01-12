@@ -1,5 +1,6 @@
 
 var RadioGroup = React.createClass({
+  mixins: [ GetValueLink ],
 
   propTypes: {
     options: React.PropTypes.array,
@@ -30,19 +31,10 @@ var RadioGroup = React.createClass({
     this._getValueLink(this.props).requestChange(this.refs['radio-'+i].props.option.value);
   },
 
-  _getValueLink( props ) {
-    return props.valueLink || {
-      value: props.value,
-      requestChange: props.onChange
-    }
-  },
-
   componentWillReceiveProps(nextProps) {
     var currentValueLink = this._getValueLink(this.props),
         nextValueLink = this._getValueLink(nextProps);
     
-    console.log("Will the component reload?", currentValueLink);
-    console.log(nextValueLink);
     if (currentValueLink.value !== nextValueLink.value) {
       var node = jQuery(this.getDOMNode());
       node.val(nextValueLink.value);

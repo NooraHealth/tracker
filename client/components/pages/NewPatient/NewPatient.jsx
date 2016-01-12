@@ -1,7 +1,7 @@
 
 var NewPatientPage = React.createClass({
 
-  mixins: [LinkedStateMixin],
+  mixins: [ LinkedStateMixin, DateAndTimeMixin ],
 
   getDefaultProps() {
     return {
@@ -16,7 +16,6 @@ var NewPatientPage = React.createClass({
 
 
   getInitialState() {
-    date = moment().toDate() 
     return {
       phone: '',
       language: 'kannada',
@@ -29,7 +28,7 @@ var NewPatientPage = React.createClass({
     var phone = this.state.phone;
     var language = this.state.language;
     var subscribeToIVR = this.state.subscribeToIVR;
-    var date = this.state.date;
+    var date = this._today();
     var hospital = this.state.hospital;
 
     if( phone.length != this.props.phoneLength )
@@ -47,6 +46,7 @@ var NewPatientPage = React.createClass({
         hospital: hospital
       };
 
+      console.log("New patient: ", patient);
       Meteor.call( "insertPatient", patient);
 
       analytics.track( "Action", {

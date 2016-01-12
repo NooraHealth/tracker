@@ -2,7 +2,11 @@
 var PatientInfo = React.createClass({
                                         
   propTypes: {
-    patient: React.PropTypes.object
+    patient: React.PropTypes.object,
+    tookClassHandler: React.PropTypes.func,
+    tookPracticalHandler: React.PropTypes.func,
+    dischargedHandler: React.PropTypes.func,
+    subscribedHandler: React.PropTypes.func
   },
 
   defaultProps(){
@@ -14,41 +18,40 @@ var PatientInfo = React.createClass({
   getInitialState(){ return {} },
 
   render(){
+    var { tookClassHandler, tookPracticalHandler, dischargedHandler, subscribedHandler } = this.props;
     return (
-      <div class="accordion-item">
-        <div class="accordion-item-toggle">
-          <i class="icon-in-button fa fa-pencil button button-fill">+</i>
+      <div className="accordion-item">
+        <div className="accordion-item-toggle">
+          <i className="icon-in-button fa fa-pencil button button-fill">+</i>
           <span> { phone }, { language } </span>
         </div>
 
-        <div class="accordion-item-content">
-          <div class="list-block">
+        <div className="accordion-item-content">
+          <div className="list-block">
             <ul>
               <li>
                 <Checkbox
                   title='Took First Class'
-                  valueLink={ this.linkState('tookFirstClass') }
+                  valueLink={ tookClassHandler }
                   />
               </li>
               <li>
                 <Checkbox
                   title='Took Practical'
-                  valueLink={ this.linkState('tookPractical') }
+                  valueLink={ tookPracticalHandler }
                   />
               </li>
               <li>
                 <Checkbox
                   title='Discharged'
-                  valueLink={ this.linkState('discharged') }
+                  valueLink={ dischargedHandler }
                   />
               </li>
               <li>
                 <Checkbox
                   title='Subscribed To Phone Messages'
-                  valueLink={ this.linkState('subscribedToIVR') }
+                  valueLink={ subscribedHandler }
                   />
-
-                </label>
               </li>
             </ul>
           </div>       

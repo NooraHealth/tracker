@@ -1,5 +1,6 @@
 
 var Checkbox = React.createClass({
+  mixins: [ GetValueLink ],
 
   propTypes: {
     title: React.PropTypes.string,
@@ -15,12 +16,19 @@ var Checkbox = React.createClass({
       valueLink: null
     } 
   },
+
+  handleChange( event ){
+    console.log("here is the event");
+    console.log(event);
+    this._getValueLink(this.props).requestChange(event.target.value);
+  },
   
   render(){
-    var { title, valueLink, ...inputProps } = this.props;
+    console.log("Rerendering the checkbox", this.state);
+    var { title, valueLink, handleChange, ...inputProps } = this.props;
     return (
       <label className="label-checkbox item-content">
-        <input { ...inputProps } checkedLink={ valueLink } type="checkbox"/>
+        <input { ...inputProps } checkedLink={ valueLink } onChange={ handleChange } type="checkbox"/>
         <div className="item-media">
           <i className="icon icon-form-checkbox"></i>
         </div>
