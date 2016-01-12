@@ -20,8 +20,6 @@ var TrackPatientsPage = React.createClass({
 
   getMeteorData(){
     re = new RegExp( this.state.search );
-    console.log("ALL PATIENTS");
-    console.table(Patients.find({}).fetch());
 
     var dischargedQuery = {
       $and: [ 
@@ -43,8 +41,6 @@ var TrackPatientsPage = React.createClass({
 
     var active = Patients.find( activeQuery , sort );
     var discharged  = Patients.find( dischargedQuery, sort );
-    console.log(active.count());
-    console.log(discharged.count());
 
     return {
       active: active.fetch(),
