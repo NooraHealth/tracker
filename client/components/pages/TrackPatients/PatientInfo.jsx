@@ -18,39 +18,39 @@ var PatientInfo = React.createClass({
   getInitialState(){ return {} },
 
   render(){
-    var { tookClassHandler, tookPracticalHandler, dischargedHandler, subscribedHandler } = this.props;
+    var { tookClassHandler, tookPracticalHandler, dischargedHandler, subscribedHandler, patient } = this.props;
     return (
       <div className="accordion-item">
         <div className="accordion-item-toggle">
           <i className="icon-in-button fa fa-pencil button button-fill">+</i>
-          <span> { phone }, { language } </span>
+          <span> { patient.phone }, { patient.language } </span>
         </div>
 
         <div className="accordion-item-content">
           <div className="list-block">
             <ul>
               <li>
-                <Checkbox
+                <Form.Checkbox
                   title='Took First Class'
-                  valueLink={ tookClassHandler }
+                  onChange={ tookClassHandler }
                   />
               </li>
               <li>
-                <Checkbox
+                <Form.Checkbox
                   title='Took Practical'
-                  valueLink={ tookPracticalHandler }
+                  onChange={ tookPracticalHandler }
                   />
               </li>
               <li>
-                <Checkbox
+                <Form.Checkbox
                   title='Discharged'
-                  valueLink={ dischargedHandler }
+                  onChange={ dischargedHandler }
                   />
               </li>
               <li>
-                <Checkbox
+                <Form.Checkbox
                   title='Subscribed To Phone Messages'
-                  valueLink={ subscribedHandler }
+                  onChange={ subscribedHandler }
                   />
               </li>
             </ul>

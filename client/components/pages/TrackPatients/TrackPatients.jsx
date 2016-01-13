@@ -84,6 +84,7 @@ var TrackPatientsPage = React.createClass({
           dischargedHandler={ dischargedHandler }
           tookClassHandler={ tookClassHandler }
           tookPracticalHandler={ tookPracticalHandler }
+          key={ patient._id }
         />
       )
     });

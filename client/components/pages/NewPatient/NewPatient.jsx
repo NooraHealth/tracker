@@ -3,6 +3,15 @@ var NewPatientPage = React.createClass({
 
   mixins: [ LinkedStateMixin, DateAndTimeMixin ],
 
+  propTypes: {
+    languageOptions: React.PropTypes.shape({
+      title: React.PropTypes.string,
+      value: React.PropTypes.string
+    }), 
+    phoneLength: React.PropTypes.number,
+    hospital: React.PropTypes.string
+  },
+
   getDefaultProps() {
     return {
       languageOptions: [
@@ -11,6 +20,7 @@ var NewPatientPage = React.createClass({
         { title: 'English', value: 'english' }
       ],
       phoneLength: 10,
+      hospital: 'jayadeva'
     };
   },
 
@@ -19,7 +29,6 @@ var NewPatientPage = React.createClass({
     return {
       phone: '',
       language: 'kannada',
-      hospital: 'jayadeva',
       subscribeToIVR: "false"
     };
   },
@@ -46,7 +55,6 @@ var NewPatientPage = React.createClass({
         hospital: hospital
       };
 
-      console.log("New patient: ", patient);
       Meteor.call( "insertPatient", patient);
 
       analytics.track( "Action", {
