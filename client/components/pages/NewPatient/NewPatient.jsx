@@ -55,6 +55,7 @@ var NewPatientPage = React.createClass({
         hospital: hospital
       };
 
+      console.log("New patient: ", patient);
       Meteor.call( "insertPatient", patient);
 
       analytics.track( "Action", {

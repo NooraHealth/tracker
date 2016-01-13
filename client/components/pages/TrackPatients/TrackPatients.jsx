@@ -43,8 +43,6 @@ var TrackPatientsPage = React.createClass({
 
     var active = Patients.find( activeQuery , sort );
     var discharged  = Patients.find( dischargedQuery, sort );
-    console.log(active.count());
-    console.log(discharged.count());
 
     return {
       active: active.fetch(),
@@ -78,14 +76,17 @@ var TrackPatientsPage = React.createClass({
       tookPracticalHandler = that._setDateOnChange( patient._id, "date_practical" );
 
       return (
-        <PatientInfo
-          patient={ patient }
-          subscribedHandler={ subscribedHandler }
-          dischargedHandler={ dischargedHandler }
-          tookClassHandler={ tookClassHandler }
-          tookPracticalHandler={ tookPracticalHandler }
-          key={ patient._id }
-        />
+        <div>
+          <PatientInfo
+            patient={ patient }
+            subscribedHandler={ subscribedHandler }
+            dischargedHandler={ dischargedHandler }
+            tookClassHandler={ tookClassHandler }
+            tookPracticalHandler={ tookPracticalHandler }
+            key={ patient._id }
+          />
+        <hr/>
+        </div>
       )
     });
     return components;
