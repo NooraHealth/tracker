@@ -3,10 +3,22 @@ var PatientInfo = React.createClass({
                                         
   propTypes: {
     patient: React.PropTypes.object,
-    tookClassHandler: React.PropTypes.func,
-    tookPracticalHandler: React.PropTypes.func,
-    dischargedHandler: React.PropTypes.func,
-    subscribedHandler: React.PropTypes.func
+    tookClassLink: React.PropTypes.shape({
+      value: React.PropTypes.string,
+      requestChange: React.PropTypes.func
+    }),
+    tookPracticalLink: React.PropTypes.shape({
+      value: React.PropTypes.string,
+      requestChange: React.PropTypes.func
+    }),
+    dischargedLink: React.PropTypes.shape({
+      value: React.PropTypes.string,
+      requestChange: React.PropTypes.func
+    }),
+    subscribedLink: React.PropTypes.shape({
+      value: React.PropTypes.string,
+      requestChange: React.PropTypes.func
+    })
   },
 
   defaultProps(){
@@ -18,7 +30,7 @@ var PatientInfo = React.createClass({
   getInitialState(){ return {} },
 
   render(){
-    var { tookClassHandler, tookPracticalHandler, dischargedHandler, subscribedHandler, patient } = this.props;
+    var { tookClassLink, tookPracticalLink, dischargedLink, subscribedLink, patient } = this.props;
     return (
       <div className="accordion-item">
         <div className="accordion-item-toggle">
@@ -32,25 +44,25 @@ var PatientInfo = React.createClass({
               <li>
                 <Form.Checkbox
                   title='Took First Class'
-                  onChange={ tookClassHandler }
+                  valueLink={ tookClassLink }
                   />
               </li>
               <li>
                 <Form.Checkbox
                   title='Took Practical'
-                  onChange={ tookPracticalHandler }
+                  valueLink={ tookPracticalLink }
                   />
               </li>
               <li>
                 <Form.Checkbox
                   title='Discharged'
-                  onChange={ dischargedHandler }
+                  valueLink={ dischargedLink }
                   />
               </li>
               <li>
                 <Form.Checkbox
                   title='Subscribed To Phone Messages'
-                  onChange={ subscribedHandler }
+                  valueLink={ subscribedLink }
                   />
               </li>
             </ul>

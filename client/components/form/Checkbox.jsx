@@ -23,12 +23,21 @@ var Checkbox = React.createClass({
     this._getValueLink(this.props).requestChange(event.target.value);
   },
   
+  shouldComponentUpdate( nextProps, nextState ){
+    console.log("Valuehtink")
+    console.log(this._getValueLink(this.props));
+    console.log(this._getValueLink(nextProps));
+    if(this._getValueLink(this.props).value != this._getValueLink(nextProps).value)
+      return false
+    else
+      return true
+  },
+
   render(){
-    console.log("Rerendering the checkbox", this.state);
     var { title, valueLink, handleChange, ...inputProps } = this.props;
     return (
       <label className="label-checkbox item-content">
-        <input { ...inputProps } checkedLink={ valueLink } onChange={ handleChange } type="checkbox"/>
+        <input { ...inputProps } checkedLink={ valueLink } type="checkbox"/>
         <div className="item-media">
           <i className="icon icon-form-checkbox"></i>
         </div>

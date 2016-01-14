@@ -70,19 +70,31 @@ var TrackPatientsPage = React.createClass({
   _getPatientInfoComponents( patients ){
     that = this
     components = patients.map( function( patient){
-      subscribedHandler = that._setBooleanOnChange( patient._id, "subscribes_to_ivr" );
-      dischargedHandler = that._setDateOnChange( patient._id, "date_discharged" );
-      tookClassHandler = that._setDateOnChange( patient._id, "date_first_class" );
-      tookPracticalHandler = that._setDateOnChange( patient._id, "date_practical" );
+      let subscribedLink = {
+        value: patient["subscribes_to_ivr"],
+        requestChange: that._setBooleanOnChange( patient._id, "subscribes_to_ivr" )
+      };
+      let dischargedLink = {
+        value: patient["date_discharged"]
+        requestChange: that._setDateOnChange( patient._id, "date_discharged" )
+      };
+      let tookClassLink = {
+        value: patient["date_first_class"],
+        requestChange: that._setDateOnChange( patient._id, "date_first_class" )
+      };
+      let tookPracticalLink = {
+        value: patien["date_practical"],
+        requestChange: that._setDateOnChange( patient._id, "date_practical" )
+      };
 
       return (
         <div>
           <PatientInfo
             patient={ patient }
-            subscribedHandler={ subscribedHandler }
-            dischargedHandler={ dischargedHandler }
-            tookClassHandler={ tookClassHandler }
-            tookPracticalHandler={ tookPracticalHandler }
+            subscribedLink={ subscribedLink }
+            dischargedLink={ dischargedLink }
+            tookClassLink={ tookClassLink }
+            tookPracticalLink={ tookPracticalLink }
             key={ patient._id }
           />
         <hr/>
