@@ -71,22 +71,22 @@ var TrackPatientsPage = React.createClass({
     that = this
     components = patients.map( function( patient){
       let subscribedLink = {
-        value: patient["subscribes_to_ivr"],
+        value: patient["subscribes_to_ivr"] != null,
         requestChange: that._setBooleanOnChange( patient._id, "subscribes_to_ivr" )
       };
 
       let dischargedLink = {
-        value: patient["date_discharged"],
+        value: patient["date_discharged"] != null,
         requestChange: that._setDateOnChange( patient._id, "date_discharged" )
       };
 
       let tookClassLink = {
-        value: patient["date_first_class"],
+        value: patient["date_first_class"] != null,
         requestChange: that._setDateOnChange( patient._id, "date_first_class" )
       };
 
       let tookPracticalLink = {
-        value: patient["date_practical"],
+        value: patient["date_practical"] != null,
         requestChange: that._setDateOnChange( patient._id, "date_practical" )
       };
 

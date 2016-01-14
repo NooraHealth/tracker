@@ -4,19 +4,19 @@ var PatientInfo = React.createClass({
   propTypes: {
     patient: React.PropTypes.object,
     tookClassLink: React.PropTypes.shape({
-      value: React.PropTypes.string,
+      value: React.PropTypes.bool,
       requestChange: React.PropTypes.func
     }),
     tookPracticalLink: React.PropTypes.shape({
-      value: React.PropTypes.string,
+      value: React.PropTypes.bool,
       requestChange: React.PropTypes.func
     }),
     dischargedLink: React.PropTypes.shape({
-      value: React.PropTypes.string,
+      value: React.PropTypes.bool,
       requestChange: React.PropTypes.func
     }),
     subscribedLink: React.PropTypes.shape({
-      value: React.PropTypes.string,
+      value: React.PropTypes.bool,
       requestChange: React.PropTypes.func
     })
   },
