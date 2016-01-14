@@ -18,19 +18,13 @@ var Checkbox = React.createClass({
   },
 
   handleChange( event ){
-    console.log("here is the event");
-    console.log(event);
     this._getValueLink(this.props).requestChange(event.target.value);
   },
   
   shouldComponentUpdate( nextProps, nextState ){
-    console.log("Valuehtink")
-    console.log(this._getValueLink(this.props));
-    console.log(this._getValueLink(nextProps));
-    if(this._getValueLink(this.props).value != this._getValueLink(nextProps).value)
+    if(this._getValueLink(this.props).value == this._getValueLink(nextProps).value)
       return false
     else
-      console.log("Rerenderkng the checkbox");
       return true
   },
 

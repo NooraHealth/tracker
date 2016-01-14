@@ -107,10 +107,6 @@ var TrackPatientsPage = React.createClass({
     return components;
   },
   render(){
-    console.log("Rerending the trackpatients page");
-    console.table(this.state);
-    console.table(this.data);
-
     var activePatients = this._getPatientInfoComponents(this.data.active);
     var dischargedPatients = this._getPatientInfoComponents(this.data.discharged);
 

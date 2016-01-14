@@ -29,6 +29,9 @@ var PatientInfo = React.createClass({
 
   getInitialState(){ return {} },
 
+  shouldComponentUpdate( nextProps, nextState) {
+  },
+
   render(){
     var { tookClassLink, tookPracticalLink, dischargedLink, subscribedLink, patient } = this.props;
     return (
