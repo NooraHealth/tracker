@@ -5,7 +5,7 @@ var Checkbox = React.createClass({
   propTypes: {
     title: React.PropTypes.string,
     valueLink: React.PropTypes.shape({
-      value: React.PropTypes.string,
+      value: React.PropTypes.bool,
       requestChange: React.PropTypes.func
     })
   },
@@ -30,6 +30,7 @@ var Checkbox = React.createClass({
     if(this._getValueLink(this.props).value != this._getValueLink(nextProps).value)
       return false
     else
+      console.log("Rerenderkng the checkbox");
       return true
   },
 

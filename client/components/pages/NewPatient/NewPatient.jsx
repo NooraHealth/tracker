@@ -4,10 +4,7 @@ var NewPatientPage = React.createClass({
   mixins: [ LinkedStateMixin, DateAndTimeMixin ],
 
   propTypes: {
-    languageOptions: React.PropTypes.shape({
-      title: React.PropTypes.string,
-      value: React.PropTypes.string
-    }), 
+    languageOptions: React.PropTypes.array,
     phoneLength: React.PropTypes.number,
     hospital: React.PropTypes.string
   },
@@ -29,7 +26,7 @@ var NewPatientPage = React.createClass({
     return {
       phone: '',
       language: 'kannada',
-      subscribeToIVR: "false"
+      subscribeToIVR: false
     };
   },
 
