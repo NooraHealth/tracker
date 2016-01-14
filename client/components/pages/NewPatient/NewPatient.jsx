@@ -35,7 +35,7 @@ var NewPatientPage = React.createClass({
     var language = this.state.language;
     var subscribeToIVR = this.state.subscribeToIVR;
     var date = this._today();
-    var hospital = this.state.hospital;
+    var hospital = this.props.hospital;
 
     if( phone.length != this.props.phoneLength )
       swal("Error", "Patient phone must be 10 digits", "error");

@@ -1,5 +1,5 @@
 Meteor.startup ()->
-  Session.setPersistent "hospital", "Jayadeva"
+  Session.setPersistent "hospital", "jayadeva"
   Meteor.call "getSegmentId", ( err, id )->
     if err
       console.log "Error getting segmentId", err
