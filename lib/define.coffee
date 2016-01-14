@@ -1,5 +1,5 @@
 this.getHospital = ()->
-  return "jayadeva"
+  return "Jayadeva"
 
 this.Patients = new Mongo.Collection Meteor.settings.public.patients_collection
 

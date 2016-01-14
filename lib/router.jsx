@@ -14,7 +14,7 @@ FlowRouter.route('/trackPatients', {
     //BlazeLayout.render("trackPatients");
     ReactLayout.render( MainLayout, {
       header: <BackButton key='backbutton'/>,
-      content: <TrackPatientsPage key='trackpatientspage' hospital='jayadeva'/>
+      content: <TrackPatientsPage key='trackpatientspage' hospital={ getHospital() }/>
     });
     analytics.page("trackPatients");
   }
