@@ -58,7 +58,7 @@ var TrackPatientsPage = React.createClass({
 
   _setDateOnChange( id, field ){
     return ( function( setToToday ){
-      var date = null;
+      let date = null;
       if( setToToday ) {
         date = this._today();
       }
@@ -74,16 +74,19 @@ var TrackPatientsPage = React.createClass({
         value: patient["subscribes_to_ivr"],
         requestChange: that._setBooleanOnChange( patient._id, "subscribes_to_ivr" )
       };
+
       let dischargedLink = {
-        value: patient["date_discharged"]
+        value: patient["date_discharged"],
         requestChange: that._setDateOnChange( patient._id, "date_discharged" )
       };
+
       let tookClassLink = {
         value: patient["date_first_class"],
         requestChange: that._setDateOnChange( patient._id, "date_first_class" )
       };
+
       let tookPracticalLink = {
-        value: patien["date_practical"],
+        value: patient["date_practical"],
         requestChange: that._setDateOnChange( patient._id, "date_practical" )
       };
 
