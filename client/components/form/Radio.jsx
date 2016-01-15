@@ -44,10 +44,10 @@ var RadioGroup = React.createClass({
   },
 
   render(){
-    that = this
-    options = this.props.options.map( function( option, i ){
-      var checked = false;
-      var ref = 'radio-' + i;
+    let that = this
+    let options = this.props.options.map( function( option, i ){
+      let checked = false;
+      let ref = 'radio-' + i;
       if(option.value == that._getValueLink(that.props).value){
         checked = true;
       } 

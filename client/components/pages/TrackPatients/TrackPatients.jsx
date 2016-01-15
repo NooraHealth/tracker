@@ -20,7 +20,7 @@ var TrackPatientsPage = React.createClass({
   },
 
   getMeteorData(){
-    re = new RegExp( this.state.search );
+    let re = new RegExp( this.state.search );
     console.log("ALL PATIENTS");
     console.table(Patients.find({}).fetch());
 
@@ -53,9 +53,9 @@ var TrackPatientsPage = React.createClass({
 
   componentDidMount(){
     console.log("The thing has mounted");
-    Perf.stop();
-    Perf.printInclusive();
-    Perf.printWasted();
+    //Perf.stop();
+    //Perf.printInclusive();
+    //Perf.printWasted();
   },
 
   _setBooleanOnChange( id, field ){
@@ -76,8 +76,8 @@ var TrackPatientsPage = React.createClass({
   },
 
   _getPatientInfoComponents( patients ){
-    that = this
-    components = patients.map( function( patient){
+    let that = this
+    let components = patients.map( function( patient){
       let subscribedLink = {
         value: patient["subscribes_to_ivr"] != null,
         requestChange: that._setBooleanOnChange( patient._id, "subscribes_to_ivr" )

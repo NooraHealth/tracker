@@ -15,8 +15,8 @@ var FormComponent = React.createClass({
   getInitialState(){ return {} },
 
   render(){
-    onSubmit = this.props.onSubmit;
-    children = React.Children.map( this.props.children, function( child ){
+    let onSubmit = this.props.onSubmit;
+    let children = React.Children.map( this.props.children, function( child ){
       return <div><hr/><li> {child} </li></div>
     });
 

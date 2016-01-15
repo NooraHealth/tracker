@@ -34,9 +34,9 @@ var NewPatientPage = React.createClass({
 
   componentDidMount(){
     console.log("The  new patient page has rendered");
-    Perf.stop();
-    Perf.printInclusive();
-    Perf.printWasted();
+    //Perf.stop();
+    //Perf.printInclusive();
+    //Perf.printWasted();
   },
 
   _onSubmit(){
