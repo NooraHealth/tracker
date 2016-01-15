@@ -1,4 +1,6 @@
 
+'use strict';
+
 var NewPatientPage = React.createClass({
 
   mixins: [ LinkedStateMixin, DateAndTimeMixin ],
@@ -28,6 +30,13 @@ var NewPatientPage = React.createClass({
       language: 'kannada',
       subscribeToIVR: false
     };
+  },
+
+  componentDidMount(){
+    console.log("The  new patient page has rendered");
+    Perf.stop();
+    Perf.printInclusive();
+    Perf.printWasted();
   },
 
   _onSubmit(){

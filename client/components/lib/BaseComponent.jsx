@@ -1,3 +1,4 @@
+'use strict';
 
 class BaseComponent extends React.Component {
   _bind(...methods){

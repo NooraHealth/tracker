@@ -1,3 +1,5 @@
+'use strict';
+
 var FormComponent = React.createClass({
   propTypes: {
     onSubmit: React.PropTypes.func

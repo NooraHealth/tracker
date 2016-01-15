@@ -1,3 +1,5 @@
+'use strict';
+
 var Input = React.createClass({
   propTypes: { 
     value: React.PropTypes.string,

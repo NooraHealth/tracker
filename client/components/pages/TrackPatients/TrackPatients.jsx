@@ -1,3 +1,4 @@
+'use strict';
 
 var TrackPatientsPage = React.createClass({
   mixins: [ LinkedStateMixin, ReactMeteorData, DateAndTimeMixin ],
@@ -48,6 +49,13 @@ var TrackPatientsPage = React.createClass({
       active: active.fetch(),
       discharged: discharged.fetch()
     }   
+  },
+
+  componentDidMount(){
+    console.log("The thing has mounted");
+    Perf.stop();
+    Perf.printInclusive();
+    Perf.printWasted();
   },
 
   _setBooleanOnChange( id, field ){

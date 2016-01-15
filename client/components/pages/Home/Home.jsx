@@ -1,3 +1,5 @@
+'use strict';
+
 var HomePage = React.createClass({
   render(){
     return (

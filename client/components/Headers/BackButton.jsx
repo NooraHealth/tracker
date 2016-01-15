@@ -1,3 +1,5 @@
+'use strict';
+
 var BackButton = React.createClass({
   render: function(){
     return (

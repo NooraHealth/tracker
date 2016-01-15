@@ -1,3 +1,4 @@
+'use strict';
 
 var Checkbox = React.createClass({
   mixins: [ GetValueLink ],
