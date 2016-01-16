@@ -53,9 +53,9 @@ var TrackPatientsPage = React.createClass({
 
   componentDidMount(){
     console.log("The thing has mounted");
-    //Perf.stop();
-    //Perf.printInclusive();
-    //Perf.printWasted();
+    Perf.stop();
+    Perf.printInclusive();
+    Perf.printWasted();
   },
 
   _setBooleanOnChange( id, field ){
@@ -114,9 +114,12 @@ var TrackPatientsPage = React.createClass({
     });
     return components;
   },
+
   render(){
+
     var activePatients = this._getPatientInfoComponents(this.data.active);
     var dischargedPatients = this._getPatientInfoComponents(this.data.discharged);
+    console.log("Rerendering the page");
 
     return (
       <div>
