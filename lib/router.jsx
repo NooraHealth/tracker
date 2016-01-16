@@ -11,7 +11,7 @@ FlowRouter.route('/', {
 
 FlowRouter.route('/trackPatients', {
   action: function(){
-    Perf.start();
+    //Perf.start();
     //BlazeLayout.render("trackPatients");
     ReactLayout.render( MainLayout, {
       header: <BackButton key='backbutton'/>,
@@ -23,7 +23,7 @@ FlowRouter.route('/trackPatients', {
 
 FlowRouter.route('/newPatient', {
   action: function(){
-    Perf.start();
+    //Perf.start();
     //BlazeLayout.render "newPatient"
     //analytics.page("newPatient")
     ReactLayout.render( MainLayout, {

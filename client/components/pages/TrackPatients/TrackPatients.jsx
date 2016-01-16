@@ -20,7 +20,7 @@ var TrackPatientsPage = React.createClass({
   },
 
   getMeteorData(){
-    let re = new RegExp( this.state.search );
+    let re = new RegExp( "^" + this.state.search );
     console.log("ALL PATIENTS");
     console.table(Patients.find({}).fetch());
 
@@ -65,6 +65,7 @@ var TrackPatientsPage = React.createClass({
   },
 
   _setDateOnChange( id, field ){
+    let that = this;
     return ( function( setToToday ){
       let date = null;
       if( setToToday ) {
