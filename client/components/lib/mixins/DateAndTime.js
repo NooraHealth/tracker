@@ -1,6 +1,6 @@
 var DateAndTimeMixin = {
   _today(){
-    return moment().toDate();
+    return moment().unix();
   }
 }
 

@@ -21,8 +21,6 @@ var TrackPatientsPage = React.createClass({
 
   getMeteorData(){
     let re = new RegExp( "^" + this.state.search );
-    console.log("ALL PATIENTS");
-    console.table(Patients.find({}).fetch());
 
     var dischargedQuery = {
       $and: [ 
@@ -49,10 +47,6 @@ var TrackPatientsPage = React.createClass({
       active: active.fetch(),
       discharged: discharged.fetch()
     }   
-  },
-
-  componentDidMount(){
-    console.log("The thing has mounted");
   },
 
   _setBooleanOnChange( id, field ){

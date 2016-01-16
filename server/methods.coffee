@@ -1,4 +1,5 @@
 Meteor.methods
+
   "getSegmentId": ()->
     return Meteor.settings.SEGMENT_ID
 
