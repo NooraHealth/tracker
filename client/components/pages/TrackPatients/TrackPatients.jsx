@@ -53,9 +53,6 @@ var TrackPatientsPage = React.createClass({
 
   componentDidMount(){
     console.log("The thing has mounted");
-    Perf.stop();
-    Perf.printInclusive();
-    Perf.printWasted();
   },
 
   _setBooleanOnChange( id, field ){
