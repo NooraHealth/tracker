@@ -17,7 +17,6 @@ es5-shim                # ECMAScript 5 compatibility for older browsers.
 ecmascript              # Enable ECMAScript2015+ syntax in app code
 
 autopublish             # Publish all data to the clients (for prototyping)
-insecure                # Allow all DB writes from clients (for prototyping)
 coffeescript
 aldeed:simple-schema
 wolves:bourbon@=3.0.0
@@ -30,6 +29,9 @@ tuul:salesforce
 percolatestudio:segment.io
 arillo:flow-router-helpers
 kadira:flow-router
-kadira:blaze-layout
 u2622:persistent-session
 kevohagan:sweetalert
+react
+kadira:react-layout
+victoransel:react-linkedstate-mixin
+aldeed:collection2

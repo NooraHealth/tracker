@@ -1,4 +1,5 @@
 Meteor.methods
+
   "getSegmentId": ()->
     return Meteor.settings.SEGMENT_ID
 
@@ -16,7 +17,7 @@ Meteor.methods
         #console.log Patients.findOne { _id: id }
 
     #patient = Patients.findOne { _id : id }
-    #insert into the Salesforce database
+    ##insert into the Salesforce database
     #Salesforce.sobject("Patient__c")
     #.create {
       #"Name" : patient.phone,

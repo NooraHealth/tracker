@@ -1,5 +1,6 @@
 Meteor.startup ()->
-  Session.setPersistent "hospital", "Jayadeva"
+  Session.setPersistent "hospital", "jayadeva"
+  this.Perf = React.addons.Perf;
   Meteor.call "getSegmentId", ( err, id )->
     if err
       console.log "Error getting segmentId", err
